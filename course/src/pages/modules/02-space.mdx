@@ -1,0 +1,51 @@
+---
+layout: ../../layouts/ModuleLayout.astro
+number: 2
+title: Space
+dek: Distance between elements is a statement about their relationship. Make true statements.
+minutes: 20
+prev: { title: 'Hierarchy', href: '/modules/01-hierarchy/' }
+next: { title: 'Type', href: '/modules/03-type/' }
+---
+import ABFlicker from '../../components/ABFlicker.tsx';
+
+## notice
+
+Module 0 showed you the scale from the outside. Look closer now, at a single relationship:
+
+<ABFlicker demo="proximity" client:only="react" />
+
+## why
+
+Your eye reads distance as meaning. Two elements sitting close claim to be related; two elements sitting far claim to be strangers. This runs on perception itself, below reading, below thought. Designers cite it as the Gestalt law of proximity. <span class="conf">replicated perception research</span>
+
+Which means every gap in your interface is asserting something. A label 14px from two different fields asserts a relationship with both, and the reader has to break the tie with effort you never see. Space you chose carelessly still speaks. It lies.
+
+The scale earns its place here. When gaps come from a short list (4, 8, 12, 16, 24, 32, 48, 64), the intervals relate to each other, and your eye reads intent instead of noise. The specific numbers matter less than the commitment; multiples of 4 are convention because they divide cleanly at any density. <span class="conf">strong convention</span>
+
+## the move
+
+Three habits cover most of it.
+
+**Group by gap ratio.** Inside a group, small steps of the scale. Between groups, larger ones, and the between gap should read as clearly bigger, a scale step or two apart. A label sits 6px from its field and 24px from the previous field. Get the ratio right and you can delete most of your boxes and dividers; the grouping is already visible.
+
+**Give elements room by default.** Start with more space than feels natural and remove until it tightens. Crowding is the amateur tell your eye already flags in other people's work. The discomfort you feel leaving space empty is a feeling about your screen real estate, and your users do not share it. They read the room as calm.
+
+**Pick edges and snap to them.** Every element's left edge should land on a line that other elements share. Few shared lines, strongly held. Watch what edge drift alone does to a form:
+
+<ABFlicker demo="alignment" client:only="react" />
+
+<span class="hatch">Dense tools are a different regime, as promised in module 0. A trading screen or an ops dashboard compresses the scale (2, 4, 8, 12, 16) because a glance must hold more data. The scale shrinks; the ratio habit and the shared edges stay. And centered layouts do exist; a centered hero holds one shared centerline instead of a left edge. Fewer lines, same discipline.</span>
+
+## the tool
+
+The gap audit, two minutes on any screen you own. Pick one column of the layout. Read the vertical gaps top to bottom and write the pixel values down. You are checking two things: do the values come from your scale, and do the small ones sit inside groups while the big ones sit between. Most screens fail the second check first: some pair of unrelated elements sits closer than a pair of related ones. Fix only those, and the screen settles.
+
+## before you ship
+
+- Every gap comes from the scale. Off-scale gaps are decisions, and you remember making them.
+- Within-group gaps are smaller than between-group gaps, by a clear step.
+- Left edges land on shared lines. Count your lines; fewer is stronger.
+- The empty space stays empty. It is doing the grouping.
+
+Next: Type. Most of your interface is text, so most of your visual quality is typography.

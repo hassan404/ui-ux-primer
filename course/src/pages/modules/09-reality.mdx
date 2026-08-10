@@ -1,0 +1,61 @@
+---
+layout: ../../layouts/ModuleLayout.astro
+number: 9
+title: Reality
+dek: Your trained eye still cannot see one thing from your desk. Someone else using your product.
+minutes: 15
+prev: { title: 'Judgement', href: '/modules/08-judgement/' }
+end: true
+---
+import PredictReveal from '../../components/PredictReveal.tsx';
+
+## notice
+
+You cannot see your own interface anymore. You know where the settings hide, why the button says "Sync," what happens after submit. That knowledge sits between you and the screen, and no amount of eye training removes it; expertise is the one blindness that grows with skill. Eight modules trained your judgement. This one is about the moment to distrust it.
+
+<PredictReveal
+  client:visible
+  prompt="You can recruit five people to try your product, or save the budget for a proper study of twenty later. Which finds more problems per hour of your effort?"
+  options={[
+    'Five now. Most problems surface fast',
+    'Twenty later. Small samples mislead',
+    'Neither. Analytics already tells you',
+  ]}
+  answer={0}
+  revealTitle="Five now, and the number is almost beside the point."
+  revealBody="The famous claim says five users find most usability problems. The honest version: the yield varies by task and product, and the studies behind the number disagree. What survives every critique is the shape of the curve: the first users surface the most, each addition repeats more of what you heard, and watching five then fixing then watching five again beats any single big study for the same effort. Analytics tells you where users leave. It cannot tell you why, and why is what you fix."
+/>
+
+## why
+
+Your judgement predicts users; it does not replace them. The strongest habit in this module fits in one sentence: watch a real person attempt a real task, and trust what they do over what anyone says, including you. Interviews, surveys, and star ratings report opinions, and opinions are polite, misremembered, and shaped by the question. Behavior is none of those. Every research method you will meet is a variation on getting closer to behavior. <span class="conf">the one consensus across the entire research literature</span>
+
+The reason this module is short: the cheap version of watching captures most of the value, and the expensive version mostly adds confidence, schedule, and a report nobody reads. You are not running a study. You are borrowing someone's fresh eyes for twenty minutes, monthly.
+
+## the move
+
+**The monthly twenty minutes.** One person who has never seen your product; a colleague from another team or a friend counts. One real task, phrased as a goal: "get a refund for the March order," never "click the billing tab." Ask them to think out loud. Then the hard part, and the entire skill: silence. No helping, no "it's actually up there," no defending. Write down where they hesitate, where they backtrack, what they say the interface is doing when it is doing something else. The moment they struggle with a thing you built, you will discover the strongest urge of your professional life to explain. Every explanation you swallow becomes a fix you understand.
+
+**Score it with one question.** After each task: "Overall, how difficult was that, 1 to 7?" That single-ease question tracks over time, costs nothing, and correlates well with the heavyweight instruments. One number per task, watched across months, tells you whether the product is getting easier. <span class="conf">validated instrument</span>
+
+**The five-minute accessibility pass**, monthly, same cadence:
+
+1. Unplug your mouse and complete your core task by keyboard. Tab order sane, focus always visible, nothing unreachable.
+2. Run your key screens through a contrast checker; module 4's floor applies.
+3. View the same screens in grayscale. Meaning that vanishes was riding on color alone.
+
+This catches the failures that lock people out entirely, and it doubles as a design review: keyboard traps and invisible focus are module 6 bugs wearing a different hat.
+
+<span class="hatch">Some questions do need heavier tools: pricing, adoption, and preference are analytics and experiment territory, and five users cannot answer them. The split that holds: watching answers "can they," analytics answers "do they," and neither answers the other.</span>
+
+## before you ship
+
+That was the course. The regression tests, gathered:
+
+- One stranger, one real task, thinking aloud, every month. Silence while they struggle.
+- One difficulty score per task, tracked over time.
+- Keyboard, contrast, grayscale, five minutes, same cadence.
+- The critique card weekly; copywork monthly; the whys in writing.
+- Spacing first when something looks off. The scale, the levers, the states. You know the checks now.
+
+The eye keeps training after the course ends; that was the design. Ship something this week and run the twenty minutes on it. The distance between you and interfaces you admire is a practice, and you have it now.

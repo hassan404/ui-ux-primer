@@ -1,0 +1,62 @@
+---
+layout: ../../layouts/ModuleLayout.astro
+number: 4
+title: Color
+dek: You need fewer colors and more shades. Almost every developer has this backwards.
+minutes: 15
+prev: { title: 'Type', href: '/modules/03-type/' }
+next: { title: 'Depth & polish', href: '/modules/05-depth-and-polish/' }
+---
+import ABFlicker from '../../components/ABFlicker.tsx';
+import PredictReveal from '../../components/PredictReveal.tsx';
+
+## notice
+
+The most common color mistake fits in one banner. Find it:
+
+<ABFlicker demo="greyoncolor" client:only="react" />
+
+## why
+
+Think of color as three dials, hue, saturation, and lightness, rather than a wall of swatches. Professional palettes turn the hue dial rarely and the lightness dial constantly. A typical polished product runs on one accent hue, a set of neutrals, and a few semantic colors, with five to nine lightness steps of each. The variety you admire in good interfaces is mostly shades, one hue at many lightnesses, doing hierarchy work. New hues are for new meanings. <span class="conf">strong convention</span>
+
+The grey-on-color bug from the drill comes from ignoring the hue dial: grey carries no hue, so on a colored background it clashes and goes muddy. De-emphasizing text on color means keeping the background's hue and raising the lightness. The same logic runs through your neutrals. Pure grey next to a strong accent feels detached; greys tinted a few percent toward the accent hue feel like one family. This site's greys carry its indigo, which is why the chrome feels whole.
+
+One dial is measurable. Contrast between text and background computes to a ratio, and 4.5:1 is the floor for body text. <span class="conf">WCAG standard</span> Your calibrated monitor and young eyes are the wrong instrument; the ratio does not negotiate. Guess the floor by eye once:
+
+<PredictReveal
+  client:visible
+  prompt="Two greys for body text on white. Which passes the 4.5:1 floor?"
+  options={[
+    'Sample A (#999999)',
+    'Sample B (#767676)',
+    'Both pass',
+  ]}
+  answer={1}
+  stage="contrast"
+  revealTitle="B passes at 4.54:1. A fails at 2.85:1."
+  revealBody="They look close on a good screen in a dark room, which is the trap. On a phone in daylight, A disappears. The lesson generalizes: your eye can rank contrast, and it cannot measure contrast. Keep a checker in reach and run it on every text color you create. The muted grey you picked for placeholder text fails more often than any other color decision."
+/>
+
+## the move
+
+Building a palette, in order:
+
+1. **Pick one accent hue.** From the brand, or from taste; the discipline matters more than the hue.
+2. **Generate five to nine lightness steps of it**, from near-white wash to near-black ink. These do buttons, links, focus rings, washes, and hovers.
+3. **Tint your neutrals toward the accent hue**, a few percent of saturation. Text, borders, and backgrounds come from this ramp.
+4. **Add semantic colors last**, one hue each for success, warning, and danger, each with a wash, a mid, and an ink step. Semantic red means danger; it stops meaning danger if it also means "brand accent" somewhere else.
+5. **Check every text color against its background.** 4.5:1 body, 3:1 for large text.
+
+Where does color rank in the hierarchy toolkit? After size and weight. A screen where color is the only ranking signal fails the squint test and fails colorblind users at the same time. Color marks; it should rarely be the sole carrier of meaning. <span class="conf">WCAG principle</span>
+
+<span class="hatch">Working in OKLCH instead of HSL makes the lightness dial honest (HSL thinks yellow and blue at 50% are equally light; your eye disagrees), and modern CSS supports it. The palette logic is identical. And if your product ships a marketing brand with six hues, keep them on marketing surfaces; product chrome still runs on one accent plus neutrals.</span>
+
+## before you ship
+
+- One accent hue, shades doing the work. New hues only for new meanings.
+- Neutrals tinted toward the accent. No pure grey text on colored backgrounds; use a tint of the background hue.
+- Every text color measured, 4.5:1 or better. The checker decides, your eye does not.
+- Anything colored carries a second signal too: an icon, a weight, a label.
+
+Next: Depth and polish. The last visual module, where the remaining "why does theirs look finished" details live.

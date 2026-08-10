@@ -1,7 +1,7 @@
 ---
 import Base from './Base.astro';
 const { frontmatter } = Astro.props;
-const { number, title, dek, minutes, prev, next } = frontmatter;
+const { number, title, dek, minutes, prev, next, end } = frontmatter;
 ---
 <Base title={`${number} · ${title} · UI/UX Primer`} description={dek}>
   <article>
@@ -28,7 +28,9 @@ const { number, title, dek, minutes, prev, next } = frontmatter;
       <div style="text-align: right">
         {next
           ? <a href={next.href}><span class="label">next →</span>{next.title}</a>
-          : <span style="color: var(--ink-3)"><span class="label">next</span>Module 2, in the works</span>}
+          : end
+            ? <a href="/"><span class="label">done</span>Back to the course map</a>
+            : <span style="color: var(--ink-3)"><span class="label">next</span>In the works</span>}
       </div>
     </nav>
     <p class="footer-note">

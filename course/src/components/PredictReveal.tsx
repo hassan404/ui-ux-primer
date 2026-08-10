@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { InvoiceCard, MismatchCard } from './demos';
+import { ContrastPair } from './demos2';
 
 /* ---------------------------------------------------------------------------
    Archetype 2 — predict, then reveal.
@@ -20,7 +21,7 @@ export default function PredictReveal({
   answer: number;
   revealTitle: string;
   revealBody: string;
-  stage?: 'mismatch' | 'invoice';
+  stage?: 'mismatch' | 'invoice' | 'contrast';
 }) {
   const [picked, setPicked] = useState<number | null>(null);
   const committed = picked !== null;
@@ -32,7 +33,7 @@ export default function PredictReveal({
         <p className="drill-prompt">{prompt}</p>
         {stage && (
           <div className="demo-mat" style={{ marginBottom: 'var(--s-4)' }}>
-            {stage === 'mismatch' ? <MismatchCard /> : <InvoiceCard />}
+            {stage === 'mismatch' ? <MismatchCard /> : stage === 'contrast' ? <ContrastPair /> : <InvoiceCard />}
           </div>
         )}
         <div role="group" aria-label="Your prediction">

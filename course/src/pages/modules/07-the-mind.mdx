@@ -1,0 +1,57 @@
+---
+layout: ../../layouts/ModuleLayout.astro
+number: 7
+title: The mind on the other side
+dek: Users arrive with a model of how software works. Your interface either matches it or fights it.
+minutes: 20
+prev: { title: 'Behavior', href: '/modules/06-behavior/' }
+next: { title: 'Judgement', href: '/modules/08-judgement/' }
+---
+import PredictReveal from '../../components/PredictReveal.tsx';
+
+## notice
+
+<PredictReveal
+  client:visible
+  prompt="You designed a navigation pattern measurably better than the standard one. Two extra seconds to learn, faster forever after. Ship it?"
+  options={[
+    'Ship it. Better is better',
+    'Ship it behind a setting',
+    'Keep the standard pattern',
+  ]}
+  answer={2}
+  revealTitle="Keep the standard, and not because innovation is bad."
+  revealBody="Users spend nearly all their time in other products, so other products set their expectations. Your better pattern taxes every new user at the door, and most bounce before the payoff. The standard pattern is a subsidy: thousands of products trained your users for you. Spend your novelty budget where your product differentiates, and let navigation stay boring. Designers cite this as Jakob's Law."
+/>
+
+## why
+
+Every user carries a mental model, an expectation of how your product works, assembled from every product they used before it. They act on the model, then check the screen for evidence it worked. Interfaces feel intuitive when the model predicts them; the fights you remember (the door that says pull and opens on push) are model mismatches. You cannot install a model in your users. You can match the one they have, or teach a new one slowly and at cost.
+
+Under this course's rules sit six principles that every canonical list (Nielsen's heuristics, Shneiderman's rules, the ISO standards) restates in its own dialect. Fifty years of independent lists converging on the same few ideas is the strongest signal in the field. <span class="conf">strong consensus</span>
+
+1. **Show system state.** The user should never wonder what is happening. Module 6's states and feedback serve this.
+2. **Match the user's model**, in words, order, and behavior. Speak "invoice," never "billing_line_item."
+3. **Keep actions reversible.** Undo, back, cancel. Exploration requires an exit.
+4. **Stay consistent**, inside your product and with the products your users already know.
+5. **Prevent errors** instead of explaining them well. Disable the invalid, constrain the field, default sensibly.
+6. **Prefer recognition over recall.** Menus over memorized commands; visible options over hidden state.
+
+One more idea earns its place by explaining your job: complexity is conserved. Every task carries irreducible complexity, and the only question is who absorbs it, your code or your user. Auto-detecting the card type from the number is complexity you ate; a dropdown asking "Visa or Mastercard?" is complexity you served. Feature by feature, that choice is the job. <span class="conf">Tesler's law; a design maxim, useful and unproven</span>
+
+## the move
+
+Treat the six principles as your code-review checklist for interfaces. State visible? Words theirs? Escape hatch present? Consistent with what they know? Error preventable? Options recognizable? Six questions, thirty seconds, and they catch most of what a heuristic evaluation catches.
+
+A warning about the wider genre: the internet sells dozens of named "laws of UX," and their evidence ranges from replicated science to vibes with a citation. Fitts's Law (big, close targets are faster to hit) is real motor-control research; it is why corner pixels and full-width buttons win. Hick's Law (more options, slower choice) holds for snap choices and gets stretched far past its data. The "seven plus or minus two" figure is the field's favorite misquote; working memory holds about four chunks, and either way it says nothing about menu length, since menus are recognition, not recall. <span class="conf">evidential status varies; labels matter</span> When someone quotes a law at you, ask which kind it is.
+
+<span class="hatch">Boring navigation, yes; boring product, no. When your product's core interaction is the differentiator (a canvas, an editor, a game), novelty there is the point, and users expect to learn it. The subsidy argument applies to the chrome around the core, where learning buys them nothing.</span>
+
+## before you ship
+
+- Run the six questions on every screen you touch. They are the review checklist now.
+- Name each feature's irreducible complexity, then decide who eats it. Prefer you.
+- Standard patterns for the chrome; novelty only where it differentiates.
+- Quoted laws get checked for their evidence class before they win an argument.
+
+Next: Judgement. The rules end here; what remains is the eye that decides when they apply.
