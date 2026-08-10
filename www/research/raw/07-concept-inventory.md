@@ -10,7 +10,7 @@
 - `[useful]` — Worth a sentence or a footnote. Comes up often enough that recognizing the word saves confusion, but a developer can function without deep understanding.
 - `[fringe]` — Fine to skip. Real vocabulary in the field, included here for completeness so the course can *consciously* cut it rather than forget it. Many of these are designer-guild or research-specialist terms.
 
-**Counts:** ~290 terms across 15 thematic groups. Related terms are grouped adjacently (e.g. affordance/signifier, i18n/l10n, responsive/adaptive) so the course can teach them as pairs.
+**Counts:** 512 entries across 15 thematic groups — 222 `[core]`, 237 `[useful]`, 57 `[fringe]`. (Many entries are deliberately paired concepts on one line, e.g. "Label vs. placeholder vs. helper text", so the distinct-concept count is higher still.) Related terms are grouped adjacently (affordance/signifier, i18n/l10n, responsive/adaptive) so the course can teach them as pairs. Note that 222 `[core]` is far more than a short course can cover — the tag means "a developer is harmed by not knowing this", not "must be a lesson". Expect the curation pass to promote perhaps 40–60 of these to explicit teaching and let the rest ride along as vocabulary used in passing.
 
 ---
 
