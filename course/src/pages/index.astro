@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+
+const modules = [
+  { n: 0, title: 'Why your UI looks off', meta: '10 min', href: '/modules/00-why-your-ui-looks-off/' },
+  { n: 1, title: 'Hierarchy', meta: '20 min', href: '/modules/01-hierarchy/' },
+  { n: 2, title: 'Space', meta: '20 min' },
+  { n: 3, title: 'Type', meta: '15 min' },
+  { n: 4, title: 'Color', meta: '15 min' },
+  { n: 5, title: 'Depth & polish', meta: '15 min' },
+  { n: 6, title: 'Behavior', meta: '25 min' },
+  { n: 7, title: 'The mind on the other side', meta: '20 min' },
+  { n: 8, title: 'Judgement', meta: '15 min' },
+  { n: 9, title: 'Reality', meta: '15 min' },
+];
+---
+<Base
+  title="UI/UX Primer — design, debugged"
+  description="A three-hour course that teaches developers sound UX judgement. Finite, interactive, no streaks."
+>
+  <div class="hero">
+    <p class="kicker">a primer for developers</p>
+    <h1>Your UI has bugs your compiler can’t see.<br />Learn to read the stack trace.</h1>
+    <p class="promise">
+      You already know when a screen looks off — you just can’t say why, or fix it.
+      This course installs the debugger: the eye, the default moves, and the judgement
+      to know which is which.
+    </p>
+    <ul class="facts">
+      <li>10 modules</li>
+      <li>~3 hours, total</li>
+      <li>no signup · no streaks · no upsell</li>
+      <li>every rule ships with its escape hatch</li>
+    </ul>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="/modules/00-why-your-ui-looks-off/">Start module 0</a>
+      <span style="font-size: var(--t-0); color: var(--ink-3); font-family: var(--mono)">10 minutes. That’s the whole ask.</span>
+    </div>
+  </div>
+
+  <ul class="map" aria-label="Course map">
+    {modules.map((m) =>
+      m.href ? (
+        <li>
+          <a class="row" href={m.href}>
+            <span class="num">{String(m.n).padStart(2, '0')}</span>
+            <span class="name">{m.title}</span>
+            <span class="meta">{m.meta}</span>
+          </a>
+        </li>
+      ) : (
+        <li class="queued">
+          <div class="row">
+            <span class="num">{String(m.n).padStart(2, '0')}</span>
+            <span class="name">{m.title}</span>
+            <span class="meta">queued</span>
+          </div>
+        </li>
+      )
+    )}
+  </ul>
+
+  <p class="footer-note">
+    modules 0–1 are live — the rest are written next, in this order, from
+    <a href="https://github.com/hassan404/ui-ux-primer">the research in this repo</a>.
+    No module will ever require the ones after it.
+  </p>
+</Base>

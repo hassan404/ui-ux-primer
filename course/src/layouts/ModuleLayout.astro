@@ -1,0 +1,39 @@
+---
+import Base from './Base.astro';
+const { frontmatter } = Astro.props;
+const { number, title, dek, minutes, prev, next } = frontmatter;
+---
+<Base title={`${number} · ${title} — UI/UX Primer`} description={dek}>
+  <article>
+    <header class="module-head">
+      <p class="crumbs">
+        <span class="num">module {String(number).padStart(2, '0')}</span>
+        <span>·</span>
+        <span>{minutes} min</span>
+        <span>·</span>
+        <span>interactive</span>
+      </p>
+      <h1>{title}</h1>
+      <p class="dek">{dek}</p>
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+    <nav class="module-foot" aria-label="Module navigation">
+      <div>
+        {prev
+          ? <a href={prev.href}><span class="label">← previous</span>{prev.title}</a>
+          : <a href="/"><span class="label">← back</span>Course map</a>}
+      </div>
+      <div style="text-align: right">
+        {next
+          ? <a href={next.href}><span class="label">next →</span>{next.title}</a>
+          : <span style="color: var(--ink-3)"><span class="label">next</span>Module 2 — in the works</span>}
+      </div>
+    </nav>
+    <p class="footer-note">
+      prose in this module: under budget (≤1,200 words — enforced at build time) ·
+      <a href="https://github.com/hassan404/ui-ux-primer">source & receipts</a>
+    </p>
+  </article>
+</Base>

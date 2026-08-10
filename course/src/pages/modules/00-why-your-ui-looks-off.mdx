@@ -1,0 +1,59 @@
+---
+layout: ../../layouts/ModuleLayout.astro
+number: 0
+title: Why your UI looks off
+dek: The bug isn’t your taste. Your taste is the only part that’s working.
+minutes: 10
+next: { title: 'Hierarchy', href: '/modules/01-hierarchy/' }
+---
+import ABFlicker from '../../components/ABFlicker.tsx';
+import BeforeAfter from '../../components/BeforeAfter.tsx';
+
+## the repro
+
+You know this moment. The feature works. The tests pass. You deploy the thing, open it in a clean tab to admire it — and something quietly dies in your chest. It's... sad-looking. You can't say *what's* wrong. You just know that if a stranger saw it, you'd want to explain that you're a good engineer, honestly.
+
+So you do what any of us does with a mystery bug: you poke at it. A border here. A shadow there. Maybe an animation. It gets busier and somehow *worse*, and you close the laptop and tell yourself design is a gift you didn't get.
+
+That diagnosis is wrong, and the rest of this course is the correct one.
+
+## the root cause
+
+Here's the part nobody tells you: **the bad feeling is the skill.** You *detected* the bug. Your eye — the part of design people claim you're missing — fired perfectly. What's missing is the debugger: the ability to read *why* it looks wrong and patch it. Detection before diagnosis, diagnosis before fix. You're not talentless; you're at step one of three, with the hard part — caring about the difference — already installed.
+
+Ira Glass called this the taste gap: for years, your taste outruns your ability, and the gap feels like proof you're not meant for this. It's the opposite — the gap is the *entry requirement*. <span class="conf">strong consensus</span>
+
+The second wrong belief is that design starts with a blank page and inspiration. It doesn't. Watch someone who's good: before any screen exists, they've pre-decided a handful of variables — a spacing scale, a type scale, one accent color and its shades — and then they apply them with boring, ruthless consistency. Design is not painting. Design is **declaring your constants, then refusing to hardcode magic numbers.** You already know how to do that. It's the most developer-shaped skill in the world, wearing an art-school jacket.
+
+## the first suspect
+
+When a UI "looks off" and you can't say why, it's usually not the colors and it's not your font. The stack trace almost always ends in the same frame: **spacing**. Gaps that are *almost* related. Padding eyeballed per-container. Nineteen pixels here because it looked fine at the time. Each decision was reasonable; together they read as noise — and noise is what "amateur" looks like. <span class="conf">the community's #1 diagnosis</span>
+
+Don't take my word for it. Run the test:
+
+<ABFlicker demo="spacing" client:only="react" />
+
+However that went — the fix is mechanical, which is the best news in this whole field. You don't need better instincts. You need a scale:
+
+<BeforeAfter demo="spacing" client:visible />
+
+<span class="hatch">Dense screens — dashboards, admin tables, trading tools — run on a tighter scale, not on no scale. If your users complain there's too much whitespace, believe them; that's a different regime, and we'll treat it with respect in module 2.</span>
+
+## how this course works
+
+Every module is a bug report: **repro** (you'll recognize the failure), **root cause** (why it happens), **fix** (moves you can apply today), **regression test** (a checklist so it stays fixed). You'll be asked to commit to answers before reveals — guessing wrong in here is the point of here.
+
+Three promises, since trust is a UX feature:
+
+- **It's finite.** Ten modules, about three hours. No streaks, no login, nothing to maintain. Finishing is a feature, so the course is built to be finished.
+- **Rules come with escape hatches.** Every rule here is a 90% rule, and the exceptions ship in the same breath — in boxes like the one above.
+- **Claims carry their confidence.** Replicated science, strong convention, and folk wisdom will be labeled as what they are — like <span class="conf">this</span>.
+
+## the regression test
+
+- The "something's off" feeling is a **signal, not a verdict**. When it fires, say thanks — your detector works.
+- When it fires, check **spacing first**. It's the usual suspect.
+- Catch yourself **adding** things to fix ugliness. The fix is nearly always subtraction or alignment, not decoration.
+- You are not behind. You're a developer with a working eye and no debugger — and the debugger is teachable, starting with the biggest lens there is: where the eye lands first.
+
+Next: **Hierarchy** — twenty minutes on the one skill that fixes half of everything.
