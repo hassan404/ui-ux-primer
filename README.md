@@ -2,7 +2,7 @@
 
 A short course that teaches developers **sound UX judgement** — the eye, the defaults, and the critique procedure — in about three hours. Built on the conviction that the course itself must be an embodiment of what it teaches: ruthless prioritization, perfect pacing, economy of words.
 
-**Status:** research phase complete → **modules 0–1 live as an interactive prototype** in [course/](course/) (`cd course && npm install && npm run dev`).
+**Status:** all ten modules live in [course/](course/) (`cd course && npm install && npm run dev`).
 
 ## Read this project in order
 
@@ -12,7 +12,7 @@ A short course that teaches developers **sound UX judgement** — the eye, the d
 | 2 | [research/raw/](research/raw/) | The inventory — nine parallel research strands over courses, books, community threads, craft rules, principles, taste, process, vocabulary, and formats. Raw, cited, confidence-tagged. |
 | 3 | [research/synthesis.md](research/synthesis.md) | The reconciliation — eight decisive findings, the 10-module course map, the cut list, the voice. |
 | 4 | [research/delivery.md](research/delivery.md) | The form — why an interactive MDX site with six drill archetypes and a token-perturbation trainer, and what got rejected. |
-| 5 | [course/](course/) | The course itself — Astro/MDX site, drill archetypes as reusable components, demo UIs rendered from tokens, word budget enforced at build time. Modules 0–1 live. |
+| 5 | [course/](course/) | The course itself — Astro/MDX site, drill archetypes as reusable components, demo UIs rendered from tokens, word budget enforced at build time. All ten modules live. |
 
 ## The raw inventory, briefly
 

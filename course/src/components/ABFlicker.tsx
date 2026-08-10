@@ -74,7 +74,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['tinted', 'grey'],
     broken: 'perturbed token: subtitle color, from a light tint of the background hue to neutral grey',
     whyRight:
-      'Yes. That text is not white at lower opacity and not grey. It is the background hue, lightened. Grey on a colored background turns muddy; a tint of the same hue reads as quiet.',
+      'Yes. The quiet text there is the background hue, lightened. Grey on a colored background turns muddy; a tint of the same hue stays clean and calm.',
     whyWrong:
       'Flicker below and watch the paragraph. Grey text on a colored background goes muddy and slightly dirty. The fix is a light tint of the background hue itself.',
   },
