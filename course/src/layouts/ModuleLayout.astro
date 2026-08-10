@@ -3,7 +3,7 @@ import Base from './Base.astro';
 const { frontmatter } = Astro.props;
 const { number, title, dek, minutes, prev, next } = frontmatter;
 ---
-<Base title={`${number} · ${title} — UI/UX Primer`} description={dek}>
+<Base title={`${number} · ${title} · UI/UX Primer`} description={dek}>
   <article>
     <header class="module-head">
       <p class="crumbs">
@@ -28,11 +28,11 @@ const { number, title, dek, minutes, prev, next } = frontmatter;
       <div style="text-align: right">
         {next
           ? <a href={next.href}><span class="label">next →</span>{next.title}</a>
-          : <span style="color: var(--ink-3)"><span class="label">next</span>Module 2 — in the works</span>}
+          : <span style="color: var(--ink-3)"><span class="label">next</span>Module 2, in the works</span>}
       </div>
     </nav>
     <p class="footer-note">
-      prose in this module: under budget (≤1,200 words — enforced at build time) ·
+      prose in this module: under budget (1,200 words max, enforced at build time) ·
       <a href="https://github.com/hassan404/ui-ux-primer">source & receipts</a>
     </p>
   </article>

@@ -72,17 +72,19 @@ The raw material caught canonical sources flatly disagreeing. The course's credi
 
 ## 5. The voice
 
-The course must have a unique, consistent register. Proposal, derived from what demonstrably works with this audience *(raw/03 §observations, raw/06)*:
+**Decided (after UAT round 1): The Trained Eye.** Perception-led, imperative, present tense. The course narrates what the learner's eye is doing, because the skill being taught is seeing. Nearly every section starts from something the learner just looked at; authority comes from the accuracy of the observations, not from cleverness or credentials.
 
-**The conceit: design as debugging.** The whole course speaks the learner's native mental model — a UI that looks off has a *bug*; the modules teach you to read the stack trace. Inconsistent spacing is *tech debt for pixels*. A spacing scale is *linting for your eyes*. Hierarchy failure is *everything logging at ERROR level*. Watching a user is *running the code in production*. This isn't decoration; it's the finding that devs learn design fastest when it's framed as pre-defined variables and invariants, not inspiration.
+A first draft used a "design as debugging" conceit (modules as bug reports, spacing as tech debt for pixels). Rejected in review: when every heading is a metaphor, the metaphor owns the content. Dev parallels are demoted from system to seasoning, used only where one is genuinely the shortest sentence (e.g. "you already pull magic numbers into named constants").
 
 **Register rules (the style contract):**
-1. Peer, not professor. "I" made these mistakes; "you" are not behind.
-2. Name the feeling before the fix (the raw corpus shows the pain is emotional first: shame, discomfort with emptiness, the sad-app moment).
-3. Every rule ships with its escape hatch, inline, same breath.
-4. Every claim carries its confidence: replicated science ≠ strong convention ≠ aphorism.
+1. Make them look first. Show, then explain what their eye did. Imperatives are welcome: look, notice, cover it, squint.
+2. Short declaratives after each observation. No pep, no reassurance-as-content; warmth arrives through respect and precision.
+3. Every rule ships with its exceptions attached, inline, same breath.
+4. Every claim carries its confidence in plain words: replicated research, strong convention, folklore that works.
 5. Second person, present tense, no hedging, no "simply."
 6. Economy enforced by budget: if a module exceeds 1,200 words, cut content, not clarity.
+7. **No em-dashes. Hard rule.** Commas, colons, periods, parentheses.
+8. Banned moves: reversal aphorisms and chiasmus ("it wasn't designed at all"-style turns), naming the reader's feelings for them, any sustained metaphor system.
 
 ## 6. Honesty ledger
 

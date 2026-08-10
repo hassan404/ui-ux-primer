@@ -2,7 +2,7 @@
 layout: ../../layouts/ModuleLayout.astro
 number: 1
 title: Hierarchy
-dek: A screen where everything is important is a log where everything is ERROR.
+dek: Where does the eye land first? That is the whole subject.
 minutes: 20
 prev: { title: 'Why your UI looks off', href: '/modules/00-why-your-ui-looks-off/' }
 ---
@@ -11,71 +11,71 @@ import PredictReveal from '../../components/PredictReveal.tsx';
 import LeverStepper from '../../components/LeverStepper.tsx';
 import SquintToggle from '../../components/SquintToggle.tsx';
 
-## the repro
+## notice
 
-You built the screen. Every element on it earned its place — the title matters, the data matters, the button *really* matters. So you made them all clear. All legible. All... equal.
-
-And now the screen reads like a log file with everything at ERROR level: technically informative, practically unreadable. When everything shouts, the reader hears nothing — they just feel tired and leave. Flat hierarchy is the most common bug in developer-built UIs, and the least visible from the inside, because *you* know where to look. You wrote it. Your users are seeing it cold, and their eyes land wherever the pixels tell them to.
-
-## the root cause
-
-Every screen has a job, and the test is brutal: **can you say the job in one sentence?** "Let the user pay an invoice." "Show whether the deploy is green." If you need a second sentence, you have a second screen hiding in the first — that's a different bug, and we'll meet it later.
-
-Once you know the job, hierarchy has exactly one rule: **what the eye meets first must be what matters most.** Not what you built last. Not what was hardest. What matters — to the user, for the job.
-
-The failure mode has a name: prominence–importance mismatch. The loudest element isn't the most important one. Watch how it feels from the outside:
+Below is a card from a product you have never used, which makes you the perfect test subject. Answer honestly:
 
 <PredictReveal
   client:visible
-  prompt="You're this product's user. What is this card actually asking you to do?"
+  prompt="You are this product's user. What is this card asking you to do?"
   options={[
-    'Compare the plans — that’s the big button',
-    'Upgrade — that’s clearly the point',
-    'It can’t decide, so I can’t either',
+    'Compare the plans. That is the big button',
+    'Upgrade. That is clearly the point',
+    'It cannot decide, so I cannot either',
   ]}
   answer={2}
   stage="mismatch"
-  revealTitle="The screen can’t decide — that’s the bug."
-  revealBody="The business goal is plainly “upgrade,” but the pixels put every watt of prominence on a feature-comparison detour and whisper the actual ask in small gray letters. Nobody chose that outcome. A default button style got reused, a link got pasted — and the volume knobs ended up random. Prominence is always saying something. Make sure it’s saying what you mean."
+  revealTitle="The screen cannot decide, so you cannot either."
+  revealBody="The business wants an upgrade. The pixels spend all their volume on a feature comparison and whisper the real ask in small gray letters. Nobody chose this outcome; a default button style got reused, a link got pasted, and the volume settled at random. Prominence always says something. Make it say what you mean."
 />
 
-## the fix
+## why
 
-Hierarchy is not a talent. It's three levers, and you already have your hand on all of them:
+What you just felt has a mechanism.
 
-1. **Size** — bigger reads first. The bluntest lever; two points is often plenty.
-2. **Weight** — bold anchors, regular supports. Free structure, zero pixels of new space.
-3. **Color** — near-black shouts, gray recedes. Contrast *is* volume.
+Your eye does not read a screen. It lands on it, wherever the contrast is strongest, and only then starts reading. The landing order is decided entirely by pixels: sizes, weights, colors. Importance has no vote unless someone gives it one.
 
-Pull them one at a time and watch a flat card come back to life:
+So every screen carries two rankings: what matters most, and what is most prominent. When they match, the screen feels obvious. When they disagree, users feel lost and cannot say why. And when everything is equally loud, there is no landing point at all. The eye circles, gets tired, and leaves. That flatness is the most common bug in developer-built interfaces, and the hardest to see from the inside, because you already know where to look. Your users arrive cold.
+
+Which ranking is right comes from the screen's job. Say it in one sentence: let the user pay an invoice. Show whether the deploy is green. If you need two sentences, you have two screens sharing one URL, and that is a different fix.
+
+## the move
+
+Hierarchy runs on three levers, and your hand is already on all of them:
+
+1. **Size.** Bigger lands first. The bluntest lever; two points is often enough.
+2. **Weight.** Bold anchors, regular supports. Structure at no cost in space.
+3. **Color.** Near-black comes forward, gray steps back. Contrast is volume.
+
+Pull them one at a time:
 
 <LeverStepper client:visible />
 
-The counterintuitive half of the skill: you'll usually make things matter **by making their neighbors matter less**. Can't make the total stand out? Don't enlarge it — gray out the labels around it. Amateur hierarchy adds volume; practiced hierarchy subtracts it. Labels especially: the word "Amount" is scaffolding, the number is the building. Data dark and firm, labels small and gray — almost never the reverse.
+The half nobody guesses: most of the time you make a thing stand out by quieting its neighbors. If the total will not read, resist enlarging it. Gray out the labels around it instead. Labels are scaffolding and values are the building: keep the word "Amount" small and gray, keep the number dark and firm, and almost never the reverse.
 
-And buttons, the place this bites hardest: a screen gets **one** filled, high-contrast primary action. Secondary actions get outlines; the "are you sure you want to delete everything" tier gets a quiet text link. If two buttons are shouting, neither is primary — that's not emphasis, that's a race condition.
+Buttons are where this bites hardest. A screen gets one filled, high-contrast action. Secondary actions get outlines. Rare or dangerous actions get quiet text links. Two filled buttons in one view means the screen has not decided, and the user inherits the indecision.
 
-<span class="hatch">One primary <em>per decision point</em>, not per pixel. A long page can have several decision moments as you scroll. And "destructive gets red" can outrank "secondary gets an outline" — semantics may win over volume. The rule you're keeping: never two loudest things in one glance.</span>
+<span class="hatch">One primary per decision point, not per page: a long page can hold several decision moments as the user scrolls. And a destructive action may claim red even when it is secondary; semantics can outrank volume. What survives every exception: never two loudest things in one glance.</span>
 
 ## the tool
 
-You don't need anyone's opinion to test hierarchy — you need worse eyesight, on demand. Squint (or step back, or blur a screenshot) until you can't read the words. Whatever still stands out *is* your hierarchy, whether you meant it or not. Designers call this the squint test; think of it as printing the stack trace of prominence and reading the top frame. <span class="conf">old designer folk-method, works</span>
+You can test hierarchy without anyone's opinion, including yours. Blur the screen and watch what survives. Squint, step back across the room, or use the toggle:
 
 <SquintToggle demo="mismatch" client:visible />
 
-Run it on the trial card: squinted, the loud detour button *owns* the screen and the real ask disappears completely. The blur can't read your intentions — only your pixels.
+This is the trial card from the top of the module. Blurred, the comparison button owns it outright and the real ask vanishes. The blur reads pixels, not intentions, which is exactly what makes it trustworthy.
 
-## the regression test
+## before you ship
 
-Prove the eye is installed — no annotations this time, just you:
+First, prove the eye works unassisted:
 
 <ABFlicker demo="hierarchy" client:only="react" />
 
-Before you ship any screen, run these four:
+Then, on any screen, four checks:
 
-- **One sentence:** what is this screen's job? (Can't say it? Split the screen, not the difference.)
-- **Squint:** does what survives the blur match what matters?
-- **One loudest thing** per glance — count your filled buttons.
-- **Labels quieter than data.** Scaffolding never outranks the building.
+- Say the screen's job in one sentence. If you cannot, split the screen.
+- Squint. What survives should match what matters.
+- Count the filled buttons per glance. One.
+- Labels quieter than data, everywhere.
 
-Next: **Space** — the scale that made module 0's card click, taught properly.
+Next: Space. The scale that fixed module 0's card, taught properly.

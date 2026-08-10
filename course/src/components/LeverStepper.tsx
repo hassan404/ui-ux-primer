@@ -11,31 +11,31 @@ const STEPS: Array<{ label: string; tokens: Partial<CardTokens>; caption: string
     label: 'flat',
     tokens: flatCard,
     caption:
-      'Everything at the same volume. Working software, working styles — and your eye has nowhere to land. This is the bug.',
+      'Everything at the same volume. The card works, the styles are valid, and your eye has nowhere to land first.',
   },
   {
     label: '+ size',
     tokens: { ...flatCard, titleSize: 16 },
     caption:
-      'Lever 1 — size. Two points on the title and the card has a name. Notice how little it took.',
+      'Lever one: size. Two points on the title and the card has a heading. Notice how little it took.',
   },
   {
     label: '+ weight',
     tokens: { ...flatCard, titleSize: 16, titleWeight: 650, valueWeight: 600 },
     caption:
-      'Lever 2 — weight. Title and amounts firm up. Structure appears with zero new pixels of space.',
+      'Lever two: weight. The title and the amounts firm up. Structure appears without a single new pixel of space.',
   },
   {
     label: '+ color',
     tokens: { ...flatCard, titleSize: 16, titleWeight: 650, valueWeight: 600, labelColor: 'hsl(248 10% 40%)', metaColor: 'hsl(248 8% 55%)', valueColor: 'hsl(248 22% 16%)' },
     caption:
-      'Lever 3 — color. The labels step back and the data steps forward. Emphasis by de-emphasis: you quieted the neighbors instead of shouting.',
+      'Lever three: color. The labels step back, the data steps forward. The amounts stand out because their neighbors got quieter.',
   },
   {
     label: '+ one primary',
     tokens: {},
     caption:
-      'One filled button. The screen now answers “what next?” without being asked. That’s hierarchy: three levers and a single loudest thing.',
+      'One filled button. The screen now answers “what next” before anyone asks. Three levers, one loudest thing.',
   },
 ];
 
@@ -43,7 +43,7 @@ export default function LeverStepper() {
   const [step, setStep] = useState(0);
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> step through the fix — one lever per step</div>
+      <div className="drill-bar"><span className="dot" /> one lever at a time</div>
       <div className="drill-body">
         <div className="seg" role="group" aria-label="Hierarchy repair steps">
           {STEPS.map((s, i) => (

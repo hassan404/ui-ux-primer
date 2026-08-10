@@ -10,22 +10,22 @@ import { InvoiceCard, offScaleCard, flatCard, type CardTokens } from './demos';
 const VARIANTS: Record<string, { before: Partial<CardTokens>; rule: string; annots: string[] }> = {
   spacing: {
     before: offScaleCard,
-    rule: 'One scale. Every gap picks from it. No exceptions you didn’t choose.',
+    rule: 'One scale. Every gap comes from it. When you break it, break it on purpose.',
     annots: [
       'Padding: 17/13/25/19 → 24 on every side. One decision instead of four.',
-      'Title-to-rows gap: 9 → 20. Related things sit close; groups get room.',
-      'Row gap: 19 → 12. Rows are one group now, not three strangers.',
-      'Rows-to-button: 31 → 20. Same slot in the scale as the title gap — rhythm.',
+      'Gap under the title: 9 → 20. Groups need more room than their members.',
+      'Row gap: 19 → 12. The three rows now read as one list.',
+      'Gap above the button: 31 → 20. The same step of the scale as the title gap, so the card has rhythm.',
     ],
   },
   hierarchy: {
     before: flatCard,
-    rule: 'Three levers — size, weight, color. Pull at least two before anyone reads a word.',
+    rule: 'Size, weight, color. Pull at least two before anyone reads a word.',
     annots: [
-      'Title: 14/400 → 16/650. The room has a name on the door again.',
-      'Amounts: 400/gray → 600/near-black. The data outranks its labels.',
-      'Labels: stay quiet on purpose. Emphasis works by contrast, not volume.',
-      'Button: back to one filled primary. A screen gets one loudest thing.',
+      'Title: 14/400 → 16/650. The card has a heading again.',
+      'Amounts: 400/gray → 600/near-black. The data now outranks its labels.',
+      'Labels: kept quiet on purpose. Emphasis comes from the contrast around it.',
+      'Button: back to one filled primary. One loudest thing per screen.',
     ],
   },
 };
@@ -36,14 +36,14 @@ export default function BeforeAfter({ demo }: { demo: keyof typeof VARIANTS }) {
 
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> the fix, applied</div>
+      <div className="drill-bar"><span className="dot" /> before and after</div>
       <div className="drill-body">
         <div className="drill-actions" style={{ marginTop: 0 }}>
           <div className="seg" role="group" aria-label="Toggle before and after">
             <button type="button" aria-pressed={!after} onClick={() => setAfter(false)}>before</button>
             <button type="button" aria-pressed={after} onClick={() => setAfter(true)}>after</button>
           </div>
-          <span className="toggle-row">toggle it — feel the jump, don’t just see it</span>
+          <span className="toggle-row">toggle it and feel the jump</span>
         </div>
         <div className="demo-mat" style={{ marginTop: 'var(--s-4)' }}>
           <InvoiceCard tokens={after ? {} : v.before} width={260} />

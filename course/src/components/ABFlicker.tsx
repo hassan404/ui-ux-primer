@@ -17,22 +17,22 @@ interface DrillDef {
 
 const DRILLS: Record<string, DrillDef> = {
   spacing: {
-    prompt: 'One of these cards was built on a spacing scale. The other was eyeballed. Which one is on the scale?',
+    prompt: 'One of these cards was built on a spacing scale. The other was spaced by eye. Which one is on the scale?',
     perturb: offScaleCard,
-    broken: 'perturbed tokens: padding 17/13/25/19 · gaps 9, 19, 31 — no two values related',
+    broken: 'perturbed tokens: padding 17/13/25/19 · gaps 9, 19, 31 · no two values related',
     whyRight:
-      'Your eye caught it. Not because you measured — because unrelated intervals read as noise, and noise reads as “off.”',
+      'Yes. You measured nothing, and you still caught it. Unrelated gaps read as noise, and your eye reports noise as “off.”',
     whyWrong:
-      'No shame — at a glance they pass for twins. Now flicker them in place below and watch the gaps jump. Once you see it, you won’t unsee it.',
+      'At a glance they nearly pass for twins, so no harm done. Flicker them in place below and watch the gaps move. After that, your eye catches it unaided.',
   },
   hierarchy: {
     prompt: 'Same card, two builds. On one of them, you know where to look first. Which?',
     perturb: flatCard,
-    broken: 'perturbed tokens: title 16→14 / 650→400 · values 600→400 · all text to one color · button de-badged',
+    broken: 'perturbed tokens: title 16→14, 650→400 · values 600→400 · all text to one color · button unfilled',
     whyRight:
-      'Right. Nothing moved — only size, weight, and color. Three tokens decide where your eye lands first.',
+      'Right. Nothing moved. Size, weight, and color changed, and those three decide where your eye lands.',
     whyWrong:
-      'Look again with the flicker below: in one version your eye lands on the total and the button. In the other it lands nowhere. That “nowhere” feeling is flat hierarchy.',
+      'Use the flicker below. In one version your eye lands on the amounts, then the button. In the other it lands nowhere in particular. That nowhere feeling is flat hierarchy.',
   },
 };
 
@@ -52,7 +52,7 @@ export default function ABFlicker({ demo }: { demo: keyof typeof DRILLS }) {
 
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> breakpoint — commit before you continue</div>
+      <div className="drill-bar"><span className="dot" /> drill · commit before the reveal</div>
       <div className="drill-body">
         <p className="drill-prompt">{def.prompt}</p>
 
@@ -75,7 +75,7 @@ export default function ABFlicker({ demo }: { demo: keyof typeof DRILLS }) {
 
         {!committed && (
           <p style={{ fontSize: 'var(--t-1)', color: 'var(--ink-3)' }}>
-            Pick one. Guessing is allowed — guessing is the exercise.
+            Pick one. It is fine to guess; the reveal teaches either way.
           </p>
         )}
 
@@ -83,7 +83,7 @@ export default function ABFlicker({ demo }: { demo: keyof typeof DRILLS }) {
           <>
             <div className="verdict" data-kind={correct ? 'good' : 'bad'}>
               <strong>
-                {correct ? `Yes — version ${goodSide}.` : `It was version ${goodSide}.`}
+                {correct ? `Yes, version ${goodSide}.` : `It was version ${goodSide}.`}
               </strong>
               <div className="why">{correct ? def.whyRight : def.whyWrong}</div>
             </div>
@@ -95,7 +95,7 @@ export default function ABFlicker({ demo }: { demo: keyof typeof DRILLS }) {
                   on scale
                 </button>
                 <button type="button" aria-pressed={showBroken} onClick={() => setShowBroken(true)}>
-                  eyeballed
+                  by eye
                 </button>
               </div>
             </div>
