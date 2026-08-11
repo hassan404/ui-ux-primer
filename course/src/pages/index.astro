@@ -14,6 +14,8 @@ const modules = [
   { n: 7, title: 'The mind on the other side', meta: '8 min', href: '/modules/07-the-mind/' },
   { n: 8, title: 'Judgement', meta: '15 min', href: '/modules/08-judgement/' },
   { n: 9, title: 'Reality', meta: '10 min', href: '/modules/09-reality/' },
+  { n: 10, title: 'The exit drill', meta: 'scored, fresh items', href: '/exit/' },
+  { n: 11, title: 'The checklist', meta: 'printable', href: '/checklist/' },
 ];
 ---
 <Base
@@ -28,7 +30,7 @@ const modules = [
       by making you look.
     </p>
     <p class="facts">
-      Ten modules, a scored exit drill, a printable checklist. About ninety minutes
+      Ten modules, then a scored exit drill and a printable checklist. About ninety minutes
       of guided work, plus what you practice on your own screens. No signup, no
       streaks, no upsell. Every rule comes with its exceptions.
     </p>
@@ -60,13 +62,8 @@ const modules = [
     )}
   </ul>
 
-  <p class="facts" style="margin-top: var(--s-5)">
-    After the modules, <a href={withBase('/exit/')}>the exit drill</a> scores your eye
-    across fresh items, and <a href={withBase('/checklist/')}>the checklist</a> goes to your desk.
-  </p>
-
   <p class="footer-note">
-    Built from <a href="https://github.com/hassan404/ui-ux-primer">open research</a>.
+    Built from <a href="https://github.com/hassan404/ui-ux-primer" target="_blank" rel="noopener">open research</a>.
     No module requires the ones after it.
   </p>
 </Base>

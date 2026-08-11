@@ -1,13 +1,26 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DRILLS, type DrillDef } from './ABFlicker';
+import { EXAM_DRILLS, EXAM_MODULE_FOR } from './drills-exam';
 
 /* ---------------------------------------------------------------------------
-   The exit drill: 14 mixed trials across all seven perturbation families,
-   randomized order and magnitude, scored per family. This is the course
-   checking its own claim: after ten modules, can you actually see it?
+   The exit drill: 14 mixed trials, scored per family.
+   Composition per run: one trial from each of the seven in-course families,
+   one from five of the six out-of-syllabus exam families, and two wildcards
+   from the whole pool. Levels, sides, order, and the exam sample all
+   re-randomize each run, so no two runs serve the same test.
 --------------------------------------------------------------------------- */
 
-const FAMILIES = Object.keys(DRILLS) as Array<keyof typeof DRILLS>;
+const ALL: Record<string, DrillDef> = { ...DRILLS, ...EXAM_DRILLS };
+const CORE = Object.keys(DRILLS);
+const EXAM = Object.keys(EXAM_DRILLS);
+
+const NAME: Record<string, string> = {
+  spacing: 'spacing scale', hierarchy: 'hierarchy', proximity: 'proximity',
+  alignment: 'alignment', typescale: 'type scale', greyoncolor: 'grey on color', shadows: 'shadows',
+  xhierarchy: 'hierarchy, unseen surface', xgrouping: 'grouping, unseen surface',
+  xlineheight: 'line height, unseen surface', xcontrast: 'contrast, unseen surface',
+  xradius: 'corner nesting, unseen surface', xlabels: 'form labels, unseen surface',
+};
 
 const MODULE_FOR: Record<string, [string, string]> = {
   spacing: ['Module 2, Space', '02-space'],
@@ -17,27 +30,46 @@ const MODULE_FOR: Record<string, [string, string]> = {
   typescale: ['Module 3, Type', '03-type'],
   greyoncolor: ['Module 4, Color', '04-color'],
   shadows: ['Module 5, Depth & polish', '05-depth-and-polish'],
+  ...EXAM_MODULE_FOR,
 };
 
-interface Trial { family: keyof typeof DRILLS; level: number; goodSide: 'A' | 'B' }
+interface Trial { family: string; level: number; goodSide: 'A' | 'B' }
+
+const rnd = (n: number) => Math.floor(Math.random() * n);
+const shuffle = <T,>(xs: T[]): T[] => {
+  const a = xs.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = rnd(i + 1);
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+function trialFor(family: string): Trial {
+  return {
+    family,
+    level: rnd(ALL[family].levels.length),
+    goodSide: Math.random() < 0.5 ? 'A' : 'B',
+  };
+}
+
+function plainTrials(): Trial[] {
+  // Deterministic first paint so the page server-renders; replaced on mount.
+  return [...CORE, ...EXAM.slice(0, 5), CORE[0], EXAM[5]].map((family) => ({ family, level: 0, goodSide: 'A' as const }));
+}
 
 function makeTrials(): Trial[] {
-  const trials: Trial[] = [];
-  for (const family of FAMILIES) {
-    for (const level of [Math.floor(Math.random() * 2), 1 + Math.floor(Math.random() * 2)]) {
-      trials.push({ family, level, goodSide: Math.random() < 0.5 ? 'A' : 'B' });
-    }
-  }
-  for (let i = trials.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [trials[i], trials[j]] = [trials[j], trials[i]];
-  }
-  return trials;
+  const trials = [
+    ...CORE.map(trialFor),
+    ...shuffle(EXAM).slice(0, 5).map(trialFor),
+    ...shuffle([...CORE, ...EXAM]).slice(0, 2).map(trialFor),
+  ];
+  return shuffle(trials);
 }
 
 export default function ExitDrill({ base = '/' }: { base?: string }) {
-  const [seed, setSeed] = useState(0);
-  const trials = useMemo(() => makeTrials(), [seed]);
+  const [trials, setTrials] = useState<Trial[]>(plainTrials);
+  useEffect(() => { setTrials(makeTrials()); }, []);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<null | 'A' | 'B'>(null);
   const [results, setResults] = useState<Array<{ family: string; correct: boolean }>>([]);
@@ -45,7 +77,7 @@ export default function ExitDrill({ base = '/' }: { base?: string }) {
 
   const done = idx >= trials.length;
   const trial = done ? null : trials[idx];
-  const def: DrillDef | null = trial ? DRILLS[trial.family] : null;
+  const def: DrillDef | null = trial ? ALL[trial.family] : null;
   const committed = picked !== null;
   const correct = trial && picked === trial.goodSide;
 
@@ -57,15 +89,15 @@ export default function ExitDrill({ base = '/' }: { base?: string }) {
   };
 
   const next = () => { setIdx((i) => i + 1); setPicked(null); };
-  const restart = () => { setSeed((s) => s + 1); setIdx(0); setPicked(null); setResults([]); };
+  const restart = () => { setTrials(makeTrials()); setIdx(0); setPicked(null); setResults([]); };
 
   if (done) {
     const total = results.filter((r) => r.correct).length;
-    const byFamily = FAMILIES.map((f) => {
+    const seen = [...new Set(results.map((r) => r.family))];
+    const byFamily = seen.map((f) => {
       const rs = results.filter((r) => r.family === f);
       return { f, got: rs.filter((r) => r.correct).length, of: rs.length };
-    });
-    const weak = byFamily.filter((b) => b.got < b.of);
+    }).sort((a, b) => (a.got / a.of) - (b.got / b.of));
     return (
       <div className="drill">
         <div className="drill-body">
@@ -75,7 +107,7 @@ export default function ExitDrill({ base = '/' }: { base?: string }) {
               <li key={f}>
                 <span className="n">{got}/{of}</span>
                 <span>
-                  {f === 'greyoncolor' ? 'grey on color' : f}
+                  {NAME[f] ?? f}
                   {got < of && (
                     <> — worth a pass back through <a href={`${base}modules/${MODULE_FOR[f][1]}/`}>{MODULE_FOR[f][0]}</a></>
                   )}
@@ -85,12 +117,10 @@ export default function ExitDrill({ base = '/' }: { base?: string }) {
           </ol>
           <p style={{ fontSize: 'var(--t-1)', color: 'var(--ink-2)' }}>
             {total >= 12
-              ? 'That is a working eye. The families you missed are one reread away.'
+              ? 'That is a working eye, including on surfaces the course never showed you. The families you missed are one reread away.'
               : total >= 9
                 ? 'Solid. The misses above are specific, which means the fix is specific too.'
-                : weak.length > 0
-                  ? 'The misses cluster, and clusters are good news: reread the modules above and run this again. The items are generated fresh each time, so memorizing is not an option.'
-                  : 'Run it again for a fresh set.'}
+                : 'The misses cluster, and clusters are good news: reread the modules above and run this again. Items, magnitudes, and the exam sample are fresh each run, so memorizing is not an option.'}
           </p>
           <div className="drill-actions">
             <button type="button" className="btn btn-ghost" onClick={restart}>Run it again, fresh items</button>
@@ -100,7 +130,7 @@ export default function ExitDrill({ base = '/' }: { base?: string }) {
     );
   }
 
-  const render = def!.levels[Math.min(trial!.level, def!.levels.length - 1)];
+  const lv = def!.levels[Math.min(trial!.level, def!.levels.length - 1)];
   return (
     <div className="drill">
       <div className="drill-body">
@@ -122,14 +152,15 @@ export default function ExitDrill({ base = '/' }: { base?: string }) {
                 {committed && picked === side && <span className="pick-badge">your pick</span>}
                 {committed && trial!.goodSide === side && <span className="pick-badge">the answer</span>}
               </span>
-              <span style={{ pointerEvents: 'none', display: 'block' }}>{render(side !== trial!.goodSide)}</span>
+              <span style={{ pointerEvents: 'none', display: 'block' }}>{lv.render(side !== trial!.goodSide)}</span>
             </button>
           ))}
         </div>
         {committed && (
           <>
             <div className="verdict" data-kind={correct ? 'good' : 'bad'} ref={verdictRef} tabIndex={-1} role="status">
-              <strong>{correct ? 'Caught it.' : `It was version ${trial!.goodSide}: the “${def!.toggle[1]}” build.`}</strong>
+              <strong>{correct ? 'Caught it.' : `It was version ${trial!.goodSide}.`}</strong>
+              <div className="why">{lv.note}</div>
             </div>
             <div className="drill-actions" style={{ marginTop: 'var(--s-4)' }}>
               <button type="button" className="btn btn-ghost" onClick={next}>

@@ -13,15 +13,15 @@ import ABFlicker from '../../components/ABFlicker.tsx';
 
 Module 0 showed you the scale from the outside. Look closer now, at a single relationship:
 
-<ABFlicker demo="proximity" client:only="react" />
+<ABFlicker demo="proximity" client:visible />
 
 ## Why
 
-Your eye reads distance as meaning. Two elements sitting close claim to be related; two elements sitting far claim to be strangers. This runs on perception itself, below reading, below thought. Designers cite it as the Gestalt law of proximity. <span class="conf">replicated perception research</span>
+Your eye reads distance as meaning. Two elements sitting close claim to be related; two elements sitting far claim to be strangers. This runs on perception itself, below reading, below thought. Designers cite it as the Gestalt law of proximity, and it is one of the few claims in this field with replicated perception research behind it: measured, re-measured, and boringly stable.
 
 Every gap in your interface asserts something. A label 14px from two different fields asserts a relationship with both, and the reader breaks the tie with effort you never see. A careless gap makes a claim you never intended, and the reader pays for it.
 
-The scale earns its place here. When gaps come from a short list (4, 8, 12, 16, 24, 32, 48, 64), the intervals relate to each other, and your eye reads intent instead of noise. The specific numbers matter less than the commitment; multiples of 4 are convention because they divide cleanly at any density. <span class="conf">strong convention</span>
+The scale earns its place here. When gaps come from a short list (4, 8, 12, 16, 24, 32, 48, 64), the intervals relate to each other, and your eye reads intent instead of noise. The specific numbers matter less than the commitment; multiples of 4 are a convention, not a law, kept because they divide cleanly at any density.
 
 ## The move
 
@@ -33,7 +33,7 @@ Three habits cover most of it.
 
 **Pick edges and snap to them.** Every element's left edge should land on a line that other elements share, and the fewer lines you use, the stronger each one reads. Watch what edge drift alone does to a form:
 
-<ABFlicker demo="alignment" client:only="react" />
+<ABFlicker demo="alignment" client:visible />
 
 <span class="hatch">Dense tools are a different regime, as promised in module 0. A trading screen or an ops dashboard compresses the scale (2, 4, 8, 12, 16) because a glance must hold more data. The scale shrinks; the ratio habit and the shared edges stay. And centered layouts do exist; a centered hero holds one shared centerline instead of a left edge. Fewer lines, same discipline.</span>
 

@@ -14,11 +14,11 @@ import BeforeAfter from '../../components/BeforeAfter.tsx';
 
 Shadows carry physics. Your eye audits them whether you asked it to or not:
 
-<ABFlicker demo="shadows" client:only="react" />
+<ABFlicker demo="shadows" client:visible />
 
 ## Why
 
-You grew up under one sun. Your visual system assumes light arrives from above, and it reads shadows as elevation data: small sharp shadow, slightly raised; large soft shadow, floating closer to you. <span class="conf">replicated perception research</span> An interface that respects the assumption gets depth for free. An interface with a glow here and a sideways shadow there is claiming three suns, and the claim reads as sloppiness even to users who could never articulate it.
+You grew up under one sun. Your visual system assumes light arrives from above, and it reads shadows as elevation data: small sharp shadow, slightly raised; large soft shadow, floating closer to you. The light-from-above prior is replicated perception research, one of vision science's steadiest results. An interface that respects the assumption gets depth for free. An interface with a glow here and a sideways shadow there is claiming three suns, and the claim reads as sloppiness even to users who could never articulate it.
 
 The deeper pattern, and it runs through this whole module: polish is consistency in the small decisions. Shadows, corner radii, border weights, icon sizes. Each individual choice is nearly arbitrary. Making the same choice everywhere is what looks professional. You have seen this before in the spacing scale; it is the same idea wearing different clothes.
 
@@ -34,7 +34,7 @@ The deeper pattern, and it runs through this whole module: polish is consistency
 
 **Icons: one size grid, one stroke weight, never scaled up.** Icons drawn for 24px turn balloon-limbed at 48. If you need a big icon, put the small one in a colored shape and let the shape carry the size.
 
-**Optical beats mathematical.** A play triangle centered by geometry sits visibly off-center; text next to an icon needs a nudge; a circle must overshoot the cap height of text beside it to look equal. When math and eye disagree, the eye is right, because the eye is the instrument your users bring. <span class="conf">working craft consensus</span>
+**Optical beats mathematical.** A play triangle centered by geometry sits visibly off-center; text next to an icon needs a nudge; a circle must overshoot the cap height of text beside it to look equal. When math and eye disagree, the eye is right, because the eye is the instrument your users bring. No study settles this one; every working craftsperson repeats it.
 
 <span class="hatch">Dark interfaces change the shadow rules: shadows need darkness to read, and a dark UI has none to spare, so elevation shifts to surface lightness (higher surfaces render lighter). Flat design systems drop shadows on purpose and leave hierarchy to color and space; that is a coherent choice, applied consistently, which is the actual rule.</span>
 
