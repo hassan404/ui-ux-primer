@@ -13,15 +13,15 @@ import PredictReveal from '../../components/PredictReveal.tsx';
 
 <PredictReveal
   client:visible
-  prompt="You designed a navigation pattern measurably better than the standard one. Two extra seconds to learn, faster forever after. Ship it?"
+  prompt="Your team A/B-tested a redesigned navigation pattern. In the test, participants completed tasks 8% faster once they had used it twice. Ship it as the default?"
   options={[
-    'Ship it. Better is better',
-    'Ship it behind a setting',
-    'Keep the standard pattern',
+    'Ship it. The data says it is faster',
+    'Ship it for existing users only',
+    'Keep the standard pattern as default',
   ]}
   answer={2}
-  revealTitle="Keep the standard pattern."
-  revealBody="Users spend nearly all their time in other products, so other products set their expectations. Your better pattern taxes every new user at the door, and most bounce before the payoff. The standard pattern is a subsidy: thousands of products trained your users for you. Spend your novelty budget where your product differentiates, and let navigation stay boring. Designers cite this as Jakob's Law."
+  revealTitle="Keep the standard as the default, despite the data."
+  revealBody="Look at what the test measured: people who had already used the pattern twice. Every real new user meets it cold, pays the learning tax at the door, and most decide about your product before the payoff arrives. Users spend nearly all their time in other products, so other products set their expectations; the standard pattern is a subsidy thousands of products paid for on your behalf. Spend novelty where your product differentiates. Designers cite this as Jakob's Law."
 />
 
 ## Why

@@ -21,7 +21,7 @@ Every list, table, and dashboard in your product carries these states, plus a pa
 
 ## Why
 
-A screen is a conversation, and conversations run on response. Three timing thresholds, measured and stable across decades of research: under 0.1 seconds feels instant; under 1 second keeps the flow, though the user notices the wait; past 10 seconds, attention leaves and needs a progress indicator with an estimate to return. <span class="conf">replicated research</span> Between those marks, perception beats stopwatch. An optimistic update (show the result now, reconcile behind the scenes) reads as instant even when the network is slow. A skeleton reads faster than a spinner in most tellings, though the study behind that claim is weaker than the blog posts citing it. <span class="conf">contested evidence</span>
+A screen is a conversation, and conversations run on response. Three timing thresholds, proposed in 1968 and repeated by usability writers ever since: under 0.1 seconds feels instant; under 1 second keeps the flow, though the user notices the wait; past 10 seconds, attention leaves and needs a progress indicator with an estimate to return. <span class="conf">long-standing guidelines; the 0.1s figure has the strongest evidence of the three</span> Between those marks, perception beats stopwatch. An optimistic update (show the result now, reconcile behind the scenes) reads as instant even when the network is slow. A skeleton reads faster than a spinner in most tellings, though the study behind that claim is weaker than the blog posts citing it. <span class="conf">contested evidence</span>
 
 The other law of conversation: people make mistakes, and your design sets the price of each one. Interfaces feel safe when actions are visible, reversible, and hard to trigger by accident. They feel dangerous when a slip costs real work. Safety is a feeling users develop about your product over time, and it decides how freely they explore it.
 
@@ -35,13 +35,15 @@ The other law of conversation: people make mistakes, and your design sets the pr
 
 <BeforeAfter demo="errorcopy" client:visible />
 
-- **Cut fields.** Each one costs completions. If the backend can derive it, ask nothing.
+- **Cut fields.** Each one costs completions. <span class="conf">a repeated finding in form analytics</span> If the backend can derive it, ask nothing.
+
+<span class="hatch">A lone search box wears its magnifier icon as the label and survives fine. Dense data grids inline their labels as column headers. The rule protects forms people fill once, cold; it relaxes where repetition or convention already carries the meaning.</span>
 
 **Destructive actions:** prefer undo to confirmation. A confirmation dialog interrupts everyone to protect against the rare slip, and habit defeats it within a week; the finger learns the "Yes" button's position. Undo protects the same slip after the fact and costs the careful majority nothing. Implement it by delaying the real side effect a few seconds while showing the action as done. <span class="conf">strong convention</span>
 
 <span class="hatch">Confirmation stays right when undo is impossible: sending an email, charging a card, deleting an account with cascading data. Match the friction to the stakes; typing the project's name to delete it is honest friction for an irreversible act.</span>
 
-**Feedback on everything touchable:** buttons show hover, press, focus, and disabled states; a submitted form shows progress on the button itself; a finished action confirms visibly. Fingers need 44px targets. Focus rings stay visible, because keyboards are how many users and every power user drives.
+**Feedback on everything touchable:** buttons show hover, press, focus, and disabled states; a submitted form shows progress on the button itself; a finished action confirms visibly. Touch targets: Apple asks for 44pt, Material for 48dp, and WCAG's hard floor is 24px; build near 44 and stop thinking about it. Focus rings stay visible, because keyboards are how many users and every power user drives.
 
 Test your instinct on the timing rules:
 

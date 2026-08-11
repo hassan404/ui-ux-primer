@@ -23,10 +23,10 @@
   --t-4: 1.75rem;   /* 28 — h2/module   */
   --t-5: 2.25rem;   /* 36 — h1          */
 
-  /* One hue (indigo, H=248), shades not colors */
+  /* One hue (ink-teal, H≈195-200), shades not colors */
   --ink:        hsl(200 25% 13%);
   --ink-2:      hsl(200 12% 38%);
-  --ink-3:      hsl(200 9% 52%);
+  --ink-3:      hsl(200 12% 42%);
   --line:       hsl(197 18% 88%);
   --line-soft:  hsl(197 18% 93%);
   --paper:      hsl(195 35% 99%);
@@ -340,3 +340,12 @@ h1 {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+.pick-badge {
+  font-size: var(--t-0);
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-left: var(--s-2);
+  white-space: nowrap;
+}
+.round-note { font-size: var(--t-1); color: var(--ink-3); margin-bottom: var(--s-3); }

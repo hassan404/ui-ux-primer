@@ -4,21 +4,21 @@ import Base from '../layouts/Base.astro';
 const withBase = (p: string) => (import.meta.env.BASE_URL + '/' + p).replace(/\/{2,}/g, '/');
 
 const modules = [
-  { n: 0, title: 'Why your UI looks off', meta: '10 min', href: '/modules/00-why-your-ui-looks-off/' },
-  { n: 1, title: 'Hierarchy', meta: '20 min', href: '/modules/01-hierarchy/' },
-  { n: 2, title: 'Space', meta: '20 min', href: '/modules/02-space/' },
-  { n: 3, title: 'Type', meta: '15 min', href: '/modules/03-type/' },
-  { n: 4, title: 'Color', meta: '15 min', href: '/modules/04-color/' },
-  { n: 5, title: 'Depth & polish', meta: '15 min', href: '/modules/05-depth-and-polish/' },
-  { n: 6, title: 'Behavior', meta: '25 min', href: '/modules/06-behavior/' },
-  { n: 7, title: 'The mind on the other side', meta: '20 min', href: '/modules/07-the-mind/' },
+  { n: 0, title: 'Why your UI looks off', meta: '8 min', href: '/modules/00-why-your-ui-looks-off/' },
+  { n: 1, title: 'Hierarchy', meta: '15 min', href: '/modules/01-hierarchy/' },
+  { n: 2, title: 'Space', meta: '12 min', href: '/modules/02-space/' },
+  { n: 3, title: 'Type', meta: '10 min', href: '/modules/03-type/' },
+  { n: 4, title: 'Color', meta: '10 min', href: '/modules/04-color/' },
+  { n: 5, title: 'Depth & polish', meta: '10 min', href: '/modules/05-depth-and-polish/' },
+  { n: 6, title: 'Behavior', meta: '12 min', href: '/modules/06-behavior/' },
+  { n: 7, title: 'The mind on the other side', meta: '8 min', href: '/modules/07-the-mind/' },
   { n: 8, title: 'Judgement', meta: '15 min', href: '/modules/08-judgement/' },
-  { n: 9, title: 'Reality', meta: '15 min', href: '/modules/09-reality/' },
+  { n: 9, title: 'Reality', meta: '10 min', href: '/modules/09-reality/' },
 ];
 ---
 <Base
   title="UI/UX Primer for developers"
-  description="A three-hour course that teaches developers sound UX judgement. Finite, interactive, no streaks."
+  description="A short interactive course that teaches developers sound UX judgement. Finite, drilled, no streaks."
 >
   <div class="hero">
     <h1>You already know when a screen looks off.<br />Learn to see why. Then fix it.</h1>
@@ -28,12 +28,13 @@ const modules = [
       by making you look.
     </p>
     <p class="facts">
-      Ten modules, about three hours. No signup, no streaks, no upsell.
-      Every rule comes with its exceptions.
+      Ten modules, a scored exit drill, a printable checklist. About ninety minutes
+      of guided work, plus what you practice on your own screens. No signup, no
+      streaks, no upsell. Every rule comes with its exceptions.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href={withBase('/modules/00-why-your-ui-looks-off/')}>Start module 0</a>
-      <span style="font-size: var(--t-1); color: var(--ink-3)">Ten minutes. That is the whole ask.</span>
+      <span style="font-size: var(--t-1); color: var(--ink-3)">Eight minutes. That is the whole ask.</span>
     </div>
   </div>
 
@@ -58,6 +59,11 @@ const modules = [
       )
     )}
   </ul>
+
+  <p class="facts" style="margin-top: var(--s-5)">
+    After the modules, <a href={withBase('/exit/')}>the exit drill</a> scores your eye
+    across fresh items, and <a href={withBase('/checklist/')}>the checklist</a> goes to your desk.
+  </p>
 
   <p class="footer-note">
     Built from <a href="https://github.com/hassan404/ui-ux-primer">open research</a>.

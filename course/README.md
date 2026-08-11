@@ -34,8 +34,8 @@ the build fails if a module bloats) and outputs a fully static site to `dist/`.
 
 1. Create `src/pages/modules/NN-slug.mdx` with the frontmatter the existing modules use
    (`layout`, `number`, `title`, `dek`, `minutes`, `prev`/`next`).
-2. Write in the bug-report arc: `## the repro` → `## the root cause` → `## the fix` →
-   `## the regression test`. Keep the style contract from
+2. Write in the module arc: `## Notice` → `## Why` → `## The move` → `## The tool` →
+   `## Before you ship`. Keep the style contract from
    [../research/synthesis.md](../research/synthesis.md) §5.
 3. Place drills by config, not by building new widgets. New demo UIs go in `demos.tsx`
    as token-rendered components.

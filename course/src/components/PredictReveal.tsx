@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { InvoiceCard, MismatchCard } from './demos';
 import { ContrastPair } from './demos2';
 
 /* ---------------------------------------------------------------------------
    Archetype 2 — predict, then reveal.
    The explanation stays locked until the learner commits to an answer.
-   Props are plain data (no JSX across the island boundary).
 --------------------------------------------------------------------------- */
 
 export default function PredictReveal({
@@ -24,7 +23,14 @@ export default function PredictReveal({
   stage?: 'mismatch' | 'invoice' | 'contrast';
 }) {
   const [picked, setPicked] = useState<number | null>(null);
+  const verdictRef = useRef<HTMLDivElement>(null);
   const committed = picked !== null;
+
+  const commit = (i: number) => {
+    if (committed) return;
+    setPicked(i);
+    requestAnimationFrame(() => verdictRef.current?.focus());
+  };
 
   return (
     <div className="drill">
@@ -43,15 +49,23 @@ export default function PredictReveal({
               className="option-btn"
               data-picked={committed && picked === i}
               data-correct={committed && i === answer}
-              disabled={committed}
-              onClick={() => setPicked(i)}
+              aria-disabled={committed}
+              onClick={() => commit(i)}
             >
               {opt}
+              {committed && picked === i && <span className="pick-badge">your pick</span>}
+              {committed && i === answer && <span className="pick-badge">the answer</span>}
             </button>
           ))}
         </div>
         {committed && (
-          <div className="verdict" data-kind={picked === answer ? 'good' : 'note'}>
+          <div
+            className="verdict"
+            data-kind={picked === answer ? 'good' : 'note'}
+            ref={verdictRef}
+            tabIndex={-1}
+            role="status"
+          >
             <strong>{revealTitle}</strong>
             <div className="why">{revealBody}</div>
           </div>

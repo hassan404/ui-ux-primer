@@ -2,24 +2,40 @@ import { useState } from 'react';
 import { InvoiceCard, MismatchCard } from './demos';
 
 /* ---------------------------------------------------------------------------
-   The squint test as a button. CSS blur ≈ squinting: detail drops out
-   and only the prominence order survives.
+   The squint test and the grayscale pass as buttons. Blur drops detail so
+   only the prominence order survives; grayscale drops hue so only meaning
+   that never depended on color survives.
 --------------------------------------------------------------------------- */
 
-export default function SquintToggle({ demo = 'invoice' }: { demo?: 'invoice' | 'mismatch' }) {
-  const [blur, setBlur] = useState(false);
+const FILTERS: Record<string, string> = {
+  normal: 'none',
+  squint: 'blur(4px)',
+  grayscale: 'grayscale(1)',
+};
+
+export default function SquintToggle({
+  demo = 'invoice',
+  modes = ['normal', 'squint'],
+}: {
+  demo?: 'invoice' | 'mismatch';
+  modes?: Array<'normal' | 'squint' | 'grayscale'>;
+}) {
+  const [mode, setMode] = useState<string>('normal');
   return (
     <div className="drill">
       <div className="drill-body">
         <div className="drill-actions" style={{ marginTop: 0 }}>
-          <div className="seg" role="group" aria-label="Toggle squint blur">
-            <button type="button" aria-pressed={!blur} onClick={() => setBlur(false)}>normal</button>
-            <button type="button" aria-pressed={blur} onClick={() => setBlur(true)}>squint</button>
+          <div className="seg" role="group" aria-label="View the demo normally, blurred, or in grayscale">
+            {modes.map((m) => (
+              <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>
+                {m}
+              </button>
+            ))}
           </div>
-          <span className="toggle-row">what survives the blur is what the screen is saying</span>
+          <span className="toggle-row">what survives the filter is what the screen is saying</span>
         </div>
         <div className="demo-mat" style={{ marginTop: 'var(--s-4)' }}>
-          <div style={{ filter: blur ? 'blur(4px)' : 'none', transition: 'filter 160ms ease' }}>
+          <div style={{ filter: FILTERS[mode], transition: 'filter 160ms ease' }}>
             {demo === 'invoice' ? <InvoiceCard width={260} /> : <MismatchCard width={280} />}
           </div>
         </div>

@@ -27,7 +27,7 @@ const STEPS: Array<{ label: string; tokens: Partial<CardTokens>; caption: string
   },
   {
     label: '+ color',
-    tokens: { ...flatCard, titleSize: 16, titleWeight: 650, valueWeight: 600, labelColor: 'hsl(248 10% 40%)', metaColor: 'hsl(248 8% 55%)', valueColor: 'hsl(248 22% 16%)' },
+    tokens: { ...flatCard, titleSize: 16, titleWeight: 650, valueWeight: 600, labelColor: 'hsl(200 12% 40%)', metaColor: 'hsl(200 12% 45%)', valueColor: 'hsl(200 25% 15%)' },
     caption:
       'Lever three: color. The labels step back, the data steps forward. The amounts stand out because their neighbors got quieter.',
   },

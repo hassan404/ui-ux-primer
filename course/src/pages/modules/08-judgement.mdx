@@ -8,20 +8,21 @@ prev: { title: 'The mind on the other side', href: '/modules/07-the-mind/' }
 next: { title: 'Reality', href: '/modules/09-reality/' }
 ---
 import PredictReveal from '../../components/PredictReveal.tsx';
+import CritiqueWalkthrough from '../../components/CritiqueWalkthrough.tsx';
 
 ## Notice
 
 <PredictReveal
   client:visible
-  prompt="Two developers want a better eye. One reads a design article every morning. One spends the same time each week rebuilding an interface they admire, then writes three sentences on what they found. A year later, whose screens changed?"
+  prompt="A developer spends fifteen minutes a day browsing beautiful interfaces on Dribbble and design galleries. A year in, what has the habit trained?"
   options={[
-    'The reader. A year of theory compounds',
-    'The rebuilder. A year of reps compounds',
-    'About equal. Input is input',
+    'A better eye for product UI. Exposure compounds',
+    'A taste for what wins likes in a feed',
+    'Nothing. Browsing is passive, so no effect either way',
   ]}
   answer={1}
-  revealTitle="The rebuilder, and it will not be close."
-  revealBody="Reading feels like learning, and the screens stay the same. Recognizing an idea in someone's prose and reproducing the decision with your own hands are different skills; screens improve on the second. The rebuilding forces you to see decisions that reading glides past: where the 4px nudges went, which greys carry hue, why that button holds the corner. The three sentences matter as much as the rebuild. Working designers keep writing down the same claim: comparison plus articulation trains the eye, and exposure alone does not."
+  revealTitle="A taste for what wins likes."
+  revealBody="Exposure does train something; that part of the intuition is right. But you acquire the taste of whatever feedback loop you watch, and gallery feeds rank by what screenshots well: dramatic gradients, empty states with illustrations, dashboards with three numbers. Shipped products survive a different filter. The fix is not to stop looking; it is to look at survivors, rebuild one screen with your own hands, and write three sentences on what you found. Comparison plus articulation trains the eye. Scrolling alone trains scrolling."
 />
 
 ## Why
@@ -46,7 +47,11 @@ The critique card. Nine questions, in order, against any screen, yours or anyone
 8. Whose taste is this serving, the user's or the maker's?
 9. Can I say why it works or fails, in sentences a colleague could act on?
 
-Run it weekly on an interface you admire and one you resent. Written answers, a few sentences. The card feels mechanical for about a month, and then it stops being a card; the questions become reflexes, which was the plan.
+Run it once right now, against the trial card from module 1, with a written answer to compare against at each step:
+
+<CritiqueWalkthrough client:only="react" />
+
+Then run it weekly on an interface you admire and one you resent. Written answers, a few sentences. The card feels mechanical for about a month, and then it stops being a card; the questions become reflexes, which was the plan.
 
 And the copywork from the drill: pick an interface you respect, rebuild one screen with your own hands in your own stack, and write down three decisions you would have made differently before seeing theirs. This is how painters trained for centuries. It works on screens for the same reason. <span class="conf">old method, strong track record</span>
 

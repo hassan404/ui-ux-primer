@@ -18,16 +18,16 @@ Below is a card from a product you have never used, which makes you the perfect 
 
 <PredictReveal
   client:visible
-  prompt="You are this product's user. What is this card asking you to do?"
+  prompt="Half a second on this card: what is it asking you to do?"
   options={[
-    'Compare the plans. That is the big button',
-    'Upgrade. That is clearly the point',
-    'It cannot decide, so I cannot either',
+    'Compare the plans. The pixels shout it',
+    'Upgrade. That must be the point of a trial card',
+    'Nothing in particular. It reads neutral to me',
   ]}
-  answer={2}
+  answer={0}
   stage="mismatch"
-  revealTitle="The screen cannot decide, so you cannot either."
-  revealBody="The business wants an upgrade. The pixels spend all their volume on a feature comparison and whisper the real ask in small gray letters. Nobody chose this outcome; a default button style got reused, a link got pasted, and the volume settled at random. Prominence always says something. Make it say what you mean."
+  revealTitle="Compare. Your eye read the pixels correctly, and the pixels are lying."
+  revealBody="Prominence has one job: to say what matters most. Here the business plainly wants an upgrade, but every watt of visual volume went to a feature-comparison detour while the real ask whispers in small gray letters. Nobody chose that; a default button style got reused, a link got pasted, and the volume settled at random. Your perception was right. The screen's priorities were wrong, and that mismatch is this module's whole subject."
 />
 
 ## Why
@@ -36,7 +36,7 @@ The confusion you felt has a mechanism.
 
 Your eye lands before it reads. It hits the strongest contrast on the screen first and starts reading from there, so pixels decide the landing order: sizes, weights, colors. Importance has no vote unless someone gives it one.
 
-Every screen therefore carries two rankings: what matters most, and what is most prominent. When they match, the screen feels obvious. When they disagree, users feel lost and cannot say why. And when everything is equally loud, there is no landing point at all. The eye circles, gets tired, and leaves. That flatness is the most common bug in developer-built interfaces, and the hardest to see from the inside, because you already know where to look. Your users arrive cold.
+Every screen therefore carries two rankings: what matters most, and what is most prominent. When they match, the screen feels obvious. When they disagree, users feel lost and cannot say why. And when everything is equally loud, there is no landing point at all. The eye circles, gets tired, and leaves. That flatness is the most common bug in developer-built interfaces <span class="conf">the recurring diagnosis across a decade of developer forums</span>, and the hardest to see from the inside, because you already know where to look. Your users arrive cold.
 
 The screen's job decides which ranking is right. Say the job in one sentence: let the user pay an invoice. Show whether the deploy is green. If you need two sentences, you have two screens sharing one URL, and that is a different fix.
 

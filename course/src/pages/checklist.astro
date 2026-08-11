@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+const sections: Array<{ title: string; items: string[] }> = [
+  {
+    title: 'Before any screen ships',
+    items: [
+      'Say the screen’s job in one sentence. Two sentences means two screens.',
+      'Squint. What survives the blur should match what matters.',
+      'One filled primary action per glance.',
+      'Labels quieter than data, everywhere.',
+    ],
+  },
+  {
+    title: 'Space',
+    items: [
+      'Every gap comes from the scale (4, 8, 12, 16, 24, 32, 48, 64 or your own).',
+      'Within-group gaps smaller than between-group gaps, by a clear step.',
+      'Left edges land on shared lines; the fewer lines, the stronger.',
+      'Empty space stays empty. It is doing the grouping.',
+    ],
+  },
+  {
+    title: 'Type',
+    items: [
+      'Sizes come from the scale; no orphan sizes a step apart.',
+      'Body 16px+; line height near 1.5; prose columns inside 75 characters.',
+      'One family, two weights, 400 minimum, covers most products.',
+      'Comparable numbers in tabular figures.',
+    ],
+  },
+  {
+    title: 'Color',
+    items: [
+      'One accent hue; shades do the work; new hues only for new meanings.',
+      'Neutrals tinted toward the accent. No pure grey on colored backgrounds.',
+      'Every text color measured: 4.5:1 body, 3:1 large. The checker decides.',
+      'Anything colored carries a second signal: icon, weight, or label.',
+    ],
+  },
+  {
+    title: 'Depth & polish',
+    items: [
+      'Two shadow tiers, downward offsets, defined once as tokens.',
+      'Separate with space first, background second, borders last.',
+      'One radius family; inner corners smaller than outer.',
+      'When the eye and the ruler disagree, trust the eye.',
+    ],
+  },
+  {
+    title: 'Behavior',
+    items: [
+      'Empty, loading, error, and partial states designed for every data view.',
+      'Labels above fields; validate on leave, forgive on fix; errors name the fix.',
+      'Undo over confirmation wherever undo is buildable.',
+      'Waits under ~300ms show nothing; longer waits show progress.',
+      'Every control answers hover, press, focus, and disabled.',
+    ],
+  },
+  {
+    title: 'Reality, monthly',
+    items: [
+      'One stranger, one real task, thinking aloud. Say nothing while they struggle.',
+      'One difficulty score per task (1–7), tracked over time.',
+      'Keyboard-only pass, contrast check, grayscale view. Five minutes.',
+      'Critique card weekly; copywork monthly; the whys in writing.',
+    ],
+  },
+];
+---
+<Base
+  title="The checklist · UI/UX Primer"
+  description="The whole course as one printable page of checks."
+>
+  <article>
+    <header class="module-head print-tight">
+      <p class="crumbs">The course, folded</p>
+      <h1>The checklist</h1>
+      <p class="dek">Every “Before you ship” list, on one page. Print it, pin it, outgrow it.</p>
+    </header>
+    <div class="prose">
+      <div class="check-grid">
+        {sections.map((s) => (
+          <section class="check-block">
+            <h2>{s.title}</h2>
+            <ul>
+              {s.items.map((it) => <li>{it}</li>)}
+            </ul>
+          </section>
+        ))}
+      </div>
+      <p class="no-print" style="margin-top: var(--s-6);">
+        <button class="btn btn-ghost" onclick="window.print()">Print this page</button>
+      </p>
+    </div>
+    <nav class="module-foot no-print" aria-label="Navigation">
+      <div><a href={base}><span class="label">Back</span>Course map</a></div>
+      <div style="text-align: right"><a href={base + 'exit/'}><span class="label">Prove it</span>The exit drill</a></div>
+    </nav>
+  </article>
+</Base>
+
+<style>
+  .check-grid { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .check-block h2 { margin-block: 0 var(--s-2); font-size: var(--t-2); }
+  .check-block ul { margin: 0; padding-inline-start: var(--s-4); }
+  .check-block li { margin-block: var(--s-1); font-size: var(--t-1); }
+  @media print {
+    .site-header, .module-foot, .no-print, .skip-link { display: none !important; }
+    .shell { padding: 0; max-width: none; }
+    .check-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .module-head { margin-block: 0 16px; }
+    body { font-size: 12px; }
+  }
+</style>

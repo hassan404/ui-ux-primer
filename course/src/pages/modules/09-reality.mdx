@@ -8,6 +8,7 @@ prev: { title: 'Judgement', href: '/modules/08-judgement/' }
 end: true
 ---
 import PredictReveal from '../../components/PredictReveal.tsx';
+import SquintToggle from '../../components/SquintToggle.tsx';
 
 ## Notice
 
@@ -15,20 +16,20 @@ You cannot see your own interface anymore. You know where the settings hide, why
 
 <PredictReveal
   client:visible
-  prompt="You can recruit five people to try your product, or save the budget for a proper study of twenty later. Which finds more problems per hour of your effort?"
+  prompt="Your PM offers a choice: a properly powered 20-participant usability study next quarter, or five hallway sessions this week and five more after you fix what you saw. The big study is statistically sounder. Which plan ships a better product?"
   options={[
-    'Five now. Most problems surface fast',
-    'Twenty later. Small samples mislead',
-    'Neither. Analytics already tells you',
+    'The 20-person study. Small samples mislead',
+    'Five now, fix, five again',
+    'Skip both. The analytics dashboard already shows where users drop',
   ]}
-  answer={0}
-  revealTitle="Five now, and the number is almost beside the point."
-  revealBody="The famous claim says five users find most usability problems. The honest version: the yield varies by task and product, and the studies behind the number disagree. What survives every critique is the shape of the curve: the first users surface the most, each addition repeats more of what you heard, and watching five then fixing then watching five again beats any single big study for the same effort. Analytics tells you where users leave. It cannot tell you why, and why is what you fix."
+  answer={1}
+  revealTitle="Five, fix, five again, and the statistics objection misses what the sessions are for."
+  revealBody="A powered study estimates prevalence; you need discovery. The famous five-user claim overstates its own precision, and the studies behind it disagree on the yield, but the curve's shape survives every critique: early users surface the most, each addition repeats more of what you heard, and a fix between batches resets the curve. Watch, fix, watch again beats one rigorous snapshot for the same budget. And analytics tells you where users leave, never why. Why is what you can fix."
 />
 
 ## Why
 
-Your judgement predicts users; it does not replace them. The strongest habit in this module fits in one sentence: watch a real person attempt a real task, and trust what they do over what anyone says, including you. Interviews, surveys, and star ratings report opinions, and opinions are polite, misremembered, and shaped by the question. Behavior is none of those. Every research method you will meet is a variation on getting closer to behavior. <span class="conf">the one consensus across the entire research literature</span>
+Your judgement predicts users; it does not replace them. The strongest habit in this module fits in one sentence: watch a real person attempt a real task, and trust what they do over what anyone says, including you. Interviews, surveys, and star ratings report opinions, and opinions are polite, misremembered, and shaped by the question. Behavior is none of those. Every research method you will meet is a variation on getting closer to behavior. <span class="conf">as close to consensus as this field gets</span>
 
 The reason this module is short: the cheap version of watching captures most of the value, and the expensive version mostly adds confidence, schedule, and a report nobody reads. You are not running a study. You are borrowing someone's fresh eyes for twenty minutes, monthly.
 
@@ -42,7 +43,9 @@ The reason this module is short: the cheap version of watching captures most of 
 
 1. Unplug your mouse and complete your core task by keyboard. Tab order sane, focus always visible, nothing unreachable.
 2. Run your key screens through a contrast checker; module 4's floor applies.
-3. View the same screens in grayscale. Meaning that vanishes was riding on color alone.
+3. View the same screens in grayscale. Meaning that vanishes was riding on color alone. Try it on a card you know:
+
+<SquintToggle demo="mismatch" modes={['normal', 'grayscale']} client:visible />
 
 This catches the failures that lock people out entirely, and it doubles as a design review: keyboard traps and invisible focus are module 6 bugs wearing a different hat.
 
@@ -58,4 +61,6 @@ That was the course. The regression tests, gathered:
 - The critique card weekly; copywork monthly; the whys in writing.
 - Spacing first when something looks off. The scale, the levers, the states. You know the checks now.
 
-The eye keeps training after the course ends; that was the design. Ship something this week and run the twenty minutes on it. You have the practice now.
+Two stops remain. [The exit drill](../../exit/) runs fourteen fresh discrimination trials across everything the modules trained and scores you per family, so "I have a working eye" becomes something you checked rather than something you read. And [the checklist](../../checklist/) folds the whole course onto one printable page for the desk where you actually work.
+
+The eye keeps training after the course ends; that was the design. Ship something this week and run the twenty minutes on it.

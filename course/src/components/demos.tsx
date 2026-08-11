@@ -25,12 +25,12 @@ export interface CardTokens {
 
 export const goodCard: CardTokens = {
   pad: '24px',
-  gapTitle: '20px',
+  gapTitle: '24px',
   gapRow: '12px',
-  gapFoot: '20px',
+  gapFoot: '24px',
   titleSize: 16,
   titleWeight: 650,
-  metaColor: 'hsl(200 9% 54%)',
+  metaColor: 'hsl(200 12% 45%)',
   labelColor: 'hsl(200 12% 40%)',
   labelSize: 14,
   valueColor: 'hsl(200 25% 15%)',
@@ -172,7 +172,7 @@ export function MismatchCard({ width = 300 }: { width?: number }) {
         </span>
         <span
           style={{
-            fontSize: 13.5, textAlign: 'center', color: 'hsl(200 9% 54%)',
+            fontSize: 13.5, textAlign: 'center', color: 'hsl(200 12% 45%)',
             padding: '4px', textDecoration: 'underline', textUnderlineOffset: 2,
           }}
         >

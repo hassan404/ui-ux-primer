@@ -32,6 +32,7 @@ export interface FormTokens {
   labelGapAbove: number;   // gap from previous element down to this label
   labelGapBelow: number;   // gap from label down to its own field
   align: 'left' | 'scattered';
+  drift?: number;          // 0..1 scatter magnitude when align is 'scattered'
 }
 
 export const attachedForm: FormTokens = { labelGapAbove: 24, labelGapBelow: 6, align: 'left' };
@@ -42,17 +43,17 @@ export const scatteredForm: FormTokens = { labelGapAbove: 24, labelGapBelow: 6, 
 
 export function FormCard({ tokens = attachedForm }: { tokens?: FormTokens }) {
   const t = tokens;
-  const scattered = t.align === 'scattered';
+  const d = t.align === 'scattered' ? (t.drift ?? 1) : 0;
   const field = (label: string, value: string, i: number) => (
-    <div key={label} style={{ textAlign: scattered && i === 1 ? 'right' : 'left' }}>
+    <div key={label} style={{ textAlign: d > 0 && i === 1 ? 'right' : 'left' }}>
       <div style={{ height: i === 0 ? 0 : t.labelGapAbove }} />
-      <div style={{ fontSize: 13, fontWeight: 600, color: INK2, marginLeft: scattered && i === 0 ? 14 : 0 }}>{label}</div>
+      <div style={{ fontSize: 13, fontWeight: 600, color: INK2, marginLeft: i === 0 ? 14 * d : 0 }}>{label}</div>
       <div style={{ height: t.labelGapBelow }} />
       <div
         style={{
           border: `1px solid ${LINE}`, borderRadius: 6, padding: '8px 10px',
-          fontSize: 14, color: INK, width: scattered && i === 1 ? '80%' : '100%',
-          marginLeft: scattered && i === 1 ? 'auto' : 0, textAlign: 'left',
+          fontSize: 14, color: INK, width: i === 1 ? `${100 - 20 * d}%` : '100%',
+          marginLeft: i === 1 ? 'auto' : 0, textAlign: 'left',
         }}
       >
         {value}
@@ -61,7 +62,7 @@ export function FormCard({ tokens = attachedForm }: { tokens?: FormTokens }) {
   );
   return (
     <Shell width={290}>
-      <div style={{ fontSize: 16, fontWeight: 650, color: INK, textAlign: scattered ? 'center' : 'left' }}>
+      <div style={{ fontSize: 16, fontWeight: 650, color: INK, textAlign: d > 0.7 ? 'center' : 'left', marginLeft: d > 0 && d <= 0.7 ? 10 * d : 0 }}>
         Create project
       </div>
       {field('Project name', 'marketing-site', 0)}
@@ -71,7 +72,7 @@ export function FormCard({ tokens = attachedForm }: { tokens?: FormTokens }) {
         style={{
           display: 'inline-block', background: 'hsl(195 75% 34%)', color: '#fff',
           fontSize: 13.5, fontWeight: 600, borderRadius: 6, padding: '8px 14px',
-          marginLeft: scattered ? '30%' : 0,
+          marginLeft: `${30 * d}%`,
         }}
       >
         Create
@@ -91,7 +92,7 @@ export interface TypeTokens {
 
 export const scaledType: TypeTokens = { hSize: 21, hWeight: 650, metaSize: 13, bodySize: 15.5, bodyLh: 1.55, width: 320 };
 /* Scale perturbation: sizes too close together to rank. */
-export const crowdedType: Partial<TypeTokens> = { hSize: 17, hWeight: 500, metaSize: 15, bodySize: 15.5 };
+export const crowdedType: Partial<TypeTokens> = { hSize: 17, metaSize: 15 };
 
 export function TypeCard({ tokens = {} }: { tokens?: Partial<TypeTokens> }) {
   const t: TypeTokens = { ...scaledType, ...tokens };
@@ -101,7 +102,7 @@ export function TypeCard({ tokens = {} }: { tokens?: Partial<TypeTokens> }) {
         Migrating the billing service
       </div>
       <div style={{ height: 6 }} />
-      <div style={{ fontSize: t.metaSize, color: 'hsl(200 9% 54%)' }}>Priya Sharma · 6 min read</div>
+      <div style={{ fontSize: t.metaSize, color: 'hsl(200 12% 45%)' }}>Priya Sharma · 6 min read</div>
       <div style={{ height: 14 }} />
       <div style={{ fontSize: t.bodySize, color: INK2, lineHeight: t.bodyLh }}>
         We moved four years of invoices to the new service without downtime. The
@@ -114,8 +115,9 @@ export function TypeCard({ tokens = {} }: { tokens?: Partial<TypeTokens> }) {
 
 /* ------------------------------- module 4 -------------------------------- */
 
-export function ColorBanner({ textMode = 'tint' }: { textMode?: 'tint' | 'grey' }) {
-  const sub = textMode === 'tint' ? 'hsl(195 65% 84%)' : 'hsl(0 0% 62%)';
+export const bannerTint = 'hsl(195 65% 90%)';
+
+export function ColorBanner({ sub = bannerTint }: { sub?: string }) {
   return (
     <div
       aria-hidden="true"
@@ -146,11 +148,11 @@ export function ColorBanner({ textMode = 'tint' }: { textMode?: 'tint' | 'grey' 
 export function ContrastPair() {
   const sample = (tag: string, color: string, ratio: string) => (
     <div style={{ background: '#fff', border: `1px solid ${LINE}`, borderRadius: 8, padding: 16, width: 220, maxWidth: '100%' }}>
-      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12, color: 'hsl(200 9% 54%)', marginBottom: 8 }}>{tag}</div>
+      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12, color: 'hsl(200 12% 45%)', marginBottom: 8 }}>{tag}</div>
       <div style={{ fontSize: 14.5, lineHeight: 1.5, color }}>
         Refunds usually arrive within five business days of approval.
       </div>
-      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 11, color: 'hsl(200 9% 62%)', marginTop: 8 }}>{ratio}</div>
+      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 11.5, color: 'hsl(200 12% 45%)', marginTop: 8 }}>{ratio}</div>
     </div>
   );
   return (
@@ -163,19 +165,14 @@ export function ContrastPair() {
 
 /* ------------------------------- module 5 -------------------------------- */
 
-export function DepthRow({ mode = 'consistent' }: { mode?: 'consistent' | 'mixed' }) {
-  const shadows =
-    mode === 'consistent'
-      ? [
-          '0 1px 2px hsl(200 30% 20% / 0.08)',
-          '0 1px 2px hsl(200 30% 20% / 0.08)',
-          '0 6px 16px hsl(200 30% 20% / 0.12), 0 2px 4px hsl(200 30% 20% / 0.06)',
-        ]
-      : [
-          '0 0 14px hsl(200 30% 20% / 0.35)',
-          '-4px -2px 6px hsl(200 30% 20% / 0.28)',
-          '3px 8px 2px hsl(200 30% 20% / 0.45)',
-        ];
+export const consistentShadows = [
+  '0 1px 2px hsl(200 30% 20% / 0.08)',
+  '0 1px 2px hsl(200 30% 20% / 0.08)',
+  '0 6px 16px hsl(200 30% 20% / 0.12), 0 2px 4px hsl(200 30% 20% / 0.06)',
+];
+
+export function DepthRow({ shadows = consistentShadows }: { shadows?: string[] }) {
+  const mode = shadows === consistentShadows ? 'consistent' : 'mixed';
   const card = (title: string, value: string, shadow: string, raised?: boolean) => (
     <div
       key={title}
@@ -252,7 +249,7 @@ export function StateCard({ state = 'ideal' }: { state?: UiState }) {
     <Shell width={280}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <span style={{ fontSize: 16, fontWeight: 650, color: INK }}>Invoices</span>
-        <span style={{ fontSize: 12.5, color: 'hsl(200 9% 54%)' }}>March</span>
+        <span style={{ fontSize: 12.5, color: 'hsl(200 12% 45%)' }}>March</span>
       </div>
       <div style={{ height: 18 }} />
 

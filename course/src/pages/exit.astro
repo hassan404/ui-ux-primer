@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import ExitDrill from '../components/ExitDrill.tsx';
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+---
+<Base
+  title="Exit drill · UI/UX Primer"
+  description="Fourteen fresh discrimination trials across everything the course trained. Scored, so you know."
+>
+  <article>
+    <header class="module-head">
+      <p class="crumbs">After module 9</p>
+      <h1>The exit drill</h1>
+      <p class="dek">Fourteen trials, every family, fresh items each run. Reading about an eye is not having one; this is where you find out.</p>
+    </header>
+    <div class="prose">
+      <p>
+        Every trial below is generated the way the course's drills were: a real layout with exactly
+        one family of tokens broken, at a random magnitude. No trial repeats between runs, so the
+        only thing that can score well here is your perception. Twelve or more out of fourteen is a
+        working eye. Under nine, the score tells you which module to reread, which is better news
+        than a certificate.
+      </p>
+      <ExitDrill client:only="react" base={base} />
+    </div>
+    <nav class="module-foot" aria-label="Navigation">
+      <div>
+        <a href={base}><span class="label">Back</span>Course map</a>
+      </div>
+      <div style="text-align: right">
+        <a href={base + 'checklist/'}><span class="label">Take with you</span>The checklist</a>
+      </div>
+    </nav>
+  </article>
+</Base>
