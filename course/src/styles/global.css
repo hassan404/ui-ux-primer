@@ -24,29 +24,30 @@
   --t-5: 2.25rem;   /* 36 — h1          */
 
   /* One hue (indigo, H=248), shades not colors */
-  --ink:        hsl(248 22% 14%);
-  --ink-2:      hsl(248 10% 38%);
-  --ink-3:      hsl(248 8% 55%);
-  --line:       hsl(248 16% 90%);
-  --line-soft:  hsl(248 16% 94%);
-  --paper:      hsl(248 30% 99%);
+  --ink:        hsl(200 25% 13%);
+  --ink-2:      hsl(200 12% 38%);
+  --ink-3:      hsl(200 9% 52%);
+  --line:       hsl(197 18% 88%);
+  --line-soft:  hsl(197 18% 93%);
+  --paper:      hsl(195 35% 99%);
   --card:       #ffffff;
-  --wash:       hsl(248 40% 97%);
-  --accent:     hsl(248 65% 55%);
-  --accent-ink: hsl(248 60% 42%);
-  --accent-wash:hsl(248 70% 96%);
+  --wash:       hsl(195 45% 96%);
+  --accent:     hsl(195 75% 34%);
+  --accent-ink: hsl(196 80% 25%);
+  --accent-wash:hsl(195 70% 94%);
   --good:       hsl(152 45% 34%);
   --good-wash:  hsl(152 45% 95%);
   --bad:        hsl(354 55% 44%);
   --bad-wash:   hsl(354 65% 96%);
 
   /* Two shadow tiers. That's all anyone needs. */
-  --shadow-1: 0 1px 2px hsl(248 30% 20% / 0.06), 0 1px 3px hsl(248 30% 20% / 0.05);
-  --shadow-2: 0 4px 12px hsl(248 30% 20% / 0.08), 0 2px 4px hsl(248 30% 20% / 0.05);
+  --shadow-1: 0 1px 2px hsl(200 30% 20% / 0.06), 0 1px 3px hsl(200 30% 20% / 0.05);
+  --shadow-2: 0 4px 12px hsl(200 30% 20% / 0.08), 0 2px 4px hsl(200 30% 20% / 0.05);
 
   --r-1: 6px;
   --r-2: 10px;
 
+  --serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --measure: 42rem;
@@ -108,7 +109,8 @@ a:hover { color: var(--accent); }
 
 /* ------------------------------- typography ------------------------------ */
 h1 {
-  font-size: var(--t-5); line-height: 1.15; letter-spacing: -0.015em;
+  font-family: var(--serif);
+  font-size: var(--t-5); line-height: 1.15; letter-spacing: -0.01em;
   font-weight: 700; margin-block: var(--s-6) var(--s-4);
   text-wrap: balance;
 }
@@ -120,7 +122,7 @@ h1 {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent-ink);
+  color: var(--ink-3);
   margin-block: var(--s-8) var(--s-4);
   padding-top: var(--s-5);
   border-top: 1px solid var(--line-soft);
@@ -188,7 +190,7 @@ h1 {
 }
 .module-head .crumbs .num { color: var(--accent-ink); font-weight: 600; }
 .module-head h1 { margin-block: var(--s-3) var(--s-2); }
-.module-head .dek { color: var(--ink-2); font-size: var(--t-2); max-width: 36rem; }
+.module-head .dek { font-family: var(--serif); font-style: italic; color: var(--ink-2); font-size: var(--t-2); max-width: 36rem; }
 
 .module-foot {
   margin-top: var(--s-8);
@@ -340,7 +342,9 @@ h1 {
 
 /* the demo surface inside drills */
 .demo-mat {
-  background: var(--wash);
+  background:
+    radial-gradient(hsl(200 25% 13% / 0.09) 1px, transparent 1px) 0 0 / 8px 8px,
+    var(--wash);
   border-radius: var(--r-1);
   padding: var(--s-5);
   display: grid; place-items: center;
@@ -358,4 +362,8 @@ h1 {
   h1 { font-size: var(--t-4); }
   .drill-body { padding: var(--s-4); }
   .demo-mat { padding: var(--s-4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }

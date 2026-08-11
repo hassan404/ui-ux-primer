@@ -30,10 +30,10 @@ export const goodCard: CardTokens = {
   gapFoot: '20px',
   titleSize: 16,
   titleWeight: 650,
-  metaColor: 'hsl(248 8% 55%)',
-  labelColor: 'hsl(248 10% 40%)',
+  metaColor: 'hsl(200 9% 54%)',
+  labelColor: 'hsl(200 12% 40%)',
   labelSize: 14,
-  valueColor: 'hsl(248 22% 16%)',
+  valueColor: 'hsl(200 25% 15%)',
   valueWeight: 600,
   radius: 8,
   btnKind: 'primary',
@@ -51,10 +51,10 @@ export const offScaleCard: Partial<CardTokens> = {
 export const flatCard: Partial<CardTokens> = {
   titleSize: 14,
   titleWeight: 400,
-  metaColor: 'hsl(248 22% 16%)',
-  labelColor: 'hsl(248 22% 16%)',
+  metaColor: 'hsl(200 25% 15%)',
+  labelColor: 'hsl(200 25% 15%)',
   labelSize: 14,
-  valueColor: 'hsl(248 22% 16%)',
+  valueColor: 'hsl(200 25% 15%)',
   valueWeight: 400,
   btnKind: 'loud-ghost',
 };
@@ -75,9 +75,9 @@ function CardButton({ kind }: { kind: CardTokens['btnKind'] }) {
     fontWeight: 600,
   };
   const kinds: Record<CardTokens['btnKind'], CSSProperties> = {
-    primary: { background: 'hsl(248 65% 55%)', color: '#fff' },
-    ghost: { background: '#fff', color: 'hsl(248 60% 42%)', borderColor: 'hsl(248 16% 88%)' },
-    'loud-ghost': { background: '#fff', color: 'hsl(248 22% 16%)', borderColor: 'hsl(248 22% 16%)', fontWeight: 400 },
+    primary: { background: 'hsl(195 75% 34%)', color: '#fff' },
+    ghost: { background: '#fff', color: 'hsl(196 80% 27%)', borderColor: 'hsl(197 18% 88%)' },
+    'loud-ghost': { background: '#fff', color: 'hsl(200 25% 15%)', borderColor: 'hsl(200 25% 15%)', fontWeight: 400 },
   };
   return (
     <span style={{ ...base, ...kinds[kind], display: 'inline-block' }} aria-hidden="true">
@@ -95,9 +95,9 @@ export function InvoiceCard({ tokens = {}, width = 280 }: { tokens?: Partial<Car
         width,
         maxWidth: '100%',
         background: '#fff',
-        border: '1px solid hsl(248 16% 89%)',
+        border: '1px solid hsl(197 18% 89%)',
         borderRadius: t.radius,
-        boxShadow: '0 1px 3px hsl(248 30% 20% / 0.07)',
+        boxShadow: '0 1px 3px hsl(200 30% 20% / 0.07)',
         padding: t.pad,
         fontFamily:
           'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
@@ -106,7 +106,7 @@ export function InvoiceCard({ tokens = {}, width = 280 }: { tokens?: Partial<Car
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-        <span style={{ fontSize: t.titleSize, fontWeight: t.titleWeight, color: 'hsl(248 22% 16%)' }}>
+        <span style={{ fontSize: t.titleSize, fontWeight: t.titleWeight, color: 'hsl(200 25% 15%)' }}>
           Invoices
         </span>
         <span style={{ fontSize: 12.5, color: t.metaColor }}>March</span>
@@ -145,18 +145,18 @@ export function MismatchCard({ width = 300 }: { width?: number }) {
         width,
         maxWidth: '100%',
         background: '#fff',
-        border: '1px solid hsl(248 16% 89%)',
+        border: '1px solid hsl(197 18% 89%)',
         borderRadius: 8,
-        boxShadow: '0 1px 3px hsl(248 30% 20% / 0.07)',
+        boxShadow: '0 1px 3px hsl(200 30% 20% / 0.07)',
         padding: 24,
         fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
         lineHeight: 1.45,
         userSelect: 'none',
       }}
     >
-      <div style={{ fontSize: 16, fontWeight: 650, color: 'hsl(248 22% 16%)' }}>Your trial ends in 3 days</div>
+      <div style={{ fontSize: 16, fontWeight: 650, color: 'hsl(200 25% 15%)' }}>Your trial ends in 3 days</div>
       <div style={{ height: 8 }} />
-      <div style={{ fontSize: 14, color: 'hsl(248 10% 40%)' }}>
+      <div style={{ fontSize: 14, color: 'hsl(200 12% 40%)' }}>
         Keep your projects and history by choosing a plan.
       </div>
       <div style={{ height: 20 }} />
@@ -164,7 +164,7 @@ export function MismatchCard({ width = 300 }: { width?: number }) {
         <span
           style={{
             fontSize: 14.5, fontWeight: 600, textAlign: 'center',
-            background: 'hsl(248 65% 55%)', color: '#fff',
+            background: 'hsl(195 75% 34%)', color: '#fff',
             borderRadius: 6, padding: '10px 14px',
           }}
         >
@@ -172,7 +172,7 @@ export function MismatchCard({ width = 300 }: { width?: number }) {
         </span>
         <span
           style={{
-            fontSize: 13.5, textAlign: 'center', color: 'hsl(248 8% 55%)',
+            fontSize: 13.5, textAlign: 'center', color: 'hsl(200 9% 54%)',
             padding: '4px', textDecoration: 'underline', textUnderlineOffset: 2,
           }}
         >

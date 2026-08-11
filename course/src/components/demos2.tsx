@@ -6,9 +6,9 @@ import type { CSSProperties } from 'react';
 --------------------------------------------------------------------------- */
 
 const FONT = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
-const INK = 'hsl(248 22% 16%)';
-const INK2 = 'hsl(248 10% 40%)';
-const LINE = 'hsl(248 16% 89%)';
+const INK = 'hsl(200 25% 15%)';
+const INK2 = 'hsl(200 12% 40%)';
+const LINE = 'hsl(197 18% 89%)';
 
 function Shell({ width = 300, pad = 24, children }: { width?: number; pad?: number | string; children: React.ReactNode }) {
   return (
@@ -17,7 +17,7 @@ function Shell({ width = 300, pad = 24, children }: { width?: number; pad?: numb
       style={{
         width, maxWidth: '100%', background: '#fff',
         border: `1px solid ${LINE}`, borderRadius: 8,
-        boxShadow: '0 1px 3px hsl(248 30% 20% / 0.07)',
+        boxShadow: '0 1px 3px hsl(200 30% 20% / 0.07)',
         padding: pad, fontFamily: FONT, lineHeight: 1.45, userSelect: 'none',
       }}
     >
@@ -69,7 +69,7 @@ export function FormCard({ tokens = attachedForm }: { tokens?: FormTokens }) {
       <div style={{ height: t.labelGapAbove }} />
       <span
         style={{
-          display: 'inline-block', background: 'hsl(248 65% 55%)', color: '#fff',
+          display: 'inline-block', background: 'hsl(195 75% 34%)', color: '#fff',
           fontSize: 13.5, fontWeight: 600, borderRadius: 6, padding: '8px 14px',
           marginLeft: scattered ? '30%' : 0,
         }}
@@ -101,7 +101,7 @@ export function TypeCard({ tokens = {} }: { tokens?: Partial<TypeTokens> }) {
         Migrating the billing service
       </div>
       <div style={{ height: 6 }} />
-      <div style={{ fontSize: t.metaSize, color: 'hsl(248 8% 55%)' }}>Priya Sharma · 6 min read</div>
+      <div style={{ fontSize: t.metaSize, color: 'hsl(200 9% 54%)' }}>Priya Sharma · 6 min read</div>
       <div style={{ height: 14 }} />
       <div style={{ fontSize: t.bodySize, color: INK2, lineHeight: t.bodyLh }}>
         We moved four years of invoices to the new service without downtime. The
@@ -115,12 +115,12 @@ export function TypeCard({ tokens = {} }: { tokens?: Partial<TypeTokens> }) {
 /* ------------------------------- module 4 -------------------------------- */
 
 export function ColorBanner({ textMode = 'tint' }: { textMode?: 'tint' | 'grey' }) {
-  const sub = textMode === 'tint' ? 'hsl(248 70% 86%)' : 'hsl(0 0% 62%)';
+  const sub = textMode === 'tint' ? 'hsl(195 65% 84%)' : 'hsl(0 0% 62%)';
   return (
     <div
       aria-hidden="true"
       style={{
-        width: 300, maxWidth: '100%', background: 'hsl(248 60% 45%)',
+        width: 300, maxWidth: '100%', background: 'hsl(195 65% 32%)',
         borderRadius: 8, padding: 24, fontFamily: FONT, userSelect: 'none',
       }}
     >
@@ -133,7 +133,7 @@ export function ColorBanner({ textMode = 'tint' }: { textMode?: 'tint' | 'grey' 
       <div style={{ height: 16 }} />
       <span
         style={{
-          display: 'inline-block', background: '#fff', color: 'hsl(248 60% 42%)',
+          display: 'inline-block', background: '#fff', color: 'hsl(196 80% 27%)',
           fontSize: 13.5, fontWeight: 600, borderRadius: 6, padding: '8px 14px',
         }}
       >
@@ -146,11 +146,11 @@ export function ColorBanner({ textMode = 'tint' }: { textMode?: 'tint' | 'grey' 
 export function ContrastPair() {
   const sample = (tag: string, color: string, ratio: string) => (
     <div style={{ background: '#fff', border: `1px solid ${LINE}`, borderRadius: 8, padding: 16, width: 220, maxWidth: '100%' }}>
-      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12, color: 'hsl(248 8% 55%)', marginBottom: 8 }}>{tag}</div>
+      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 12, color: 'hsl(200 9% 54%)', marginBottom: 8 }}>{tag}</div>
       <div style={{ fontSize: 14.5, lineHeight: 1.5, color }}>
         Refunds usually arrive within five business days of approval.
       </div>
-      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 11, color: 'hsl(248 8% 65%)', marginTop: 8 }}>{ratio}</div>
+      <div style={{ fontFamily: 'ui-monospace, monospace', fontSize: 11, color: 'hsl(200 9% 62%)', marginTop: 8 }}>{ratio}</div>
     </div>
   );
   return (
@@ -167,14 +167,14 @@ export function DepthRow({ mode = 'consistent' }: { mode?: 'consistent' | 'mixed
   const shadows =
     mode === 'consistent'
       ? [
-          '0 1px 2px hsl(248 30% 20% / 0.08)',
-          '0 1px 2px hsl(248 30% 20% / 0.08)',
-          '0 6px 16px hsl(248 30% 20% / 0.12), 0 2px 4px hsl(248 30% 20% / 0.06)',
+          '0 1px 2px hsl(200 30% 20% / 0.08)',
+          '0 1px 2px hsl(200 30% 20% / 0.08)',
+          '0 6px 16px hsl(200 30% 20% / 0.12), 0 2px 4px hsl(200 30% 20% / 0.06)',
         ]
       : [
-          '0 0 14px hsl(248 30% 20% / 0.35)',
-          '-4px -2px 6px hsl(248 30% 20% / 0.28)',
-          '3px 8px 2px hsl(248 30% 20% / 0.45)',
+          '0 0 14px hsl(200 30% 20% / 0.35)',
+          '-4px -2px 6px hsl(200 30% 20% / 0.28)',
+          '3px 8px 2px hsl(200 30% 20% / 0.45)',
         ];
   const card = (title: string, value: string, shadow: string, raised?: boolean) => (
     <div
@@ -208,7 +208,7 @@ export function SettingsCard({ tokens = { borders: false } }: { tokens?: Separat
         display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         padding: b ? '10px 10px' : '10px 0',
         border: b ? `1px solid ${LINE}` : 'none',
-        borderBottom: b ? `1px solid ${LINE}` : last ? 'none' : `1px solid hsl(248 16% 94%)`,
+        borderBottom: b ? `1px solid ${LINE}` : last ? 'none' : `1px solid hsl(197 18% 93%)`,
         borderRadius: b ? 6 : 0,
         marginBottom: b ? 8 : 0,
       }}
@@ -246,13 +246,13 @@ export function StateCard({ state = 'ideal' }: { state?: UiState }) {
     ['Initech', '$720.00'],
   ];
   const bar = (w: string) => (
-    <div style={{ height: 12, width: w, borderRadius: 6, background: 'hsl(248 16% 92%)' }} />
+    <div style={{ height: 12, width: w, borderRadius: 6, background: 'hsl(197 18% 92%)' }} />
   );
   return (
     <Shell width={280}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
         <span style={{ fontSize: 16, fontWeight: 650, color: INK }}>Invoices</span>
-        <span style={{ fontSize: 12.5, color: 'hsl(248 8% 55%)' }}>March</span>
+        <span style={{ fontSize: 12.5, color: 'hsl(200 9% 54%)' }}>March</span>
       </div>
       <div style={{ height: 18 }} />
 
@@ -304,8 +304,8 @@ export function StateCard({ state = 'ideal' }: { state?: UiState }) {
       <span
         style={{
           display: 'inline-block',
-          background: state === 'error' ? '#fff' : 'hsl(248 65% 55%)',
-          color: state === 'error' ? 'hsl(248 60% 42%)' : '#fff',
+          background: state === 'error' ? '#fff' : 'hsl(195 75% 34%)',
+          color: state === 'error' ? 'hsl(196 80% 27%)' : '#fff',
           border: state === 'error' ? `1px solid ${LINE}` : '1px solid transparent',
           fontSize: 13.5, fontWeight: 600, borderRadius: 6, padding: '8px 14px',
         }}

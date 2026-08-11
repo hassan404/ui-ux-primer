@@ -24,7 +24,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['on scale', 'by eye'],
     broken: 'perturbed tokens: padding 17/13/25/19 · gaps 9, 19, 31 · no two values related',
     whyRight:
-      'Yes. You measured nothing, and you still caught it. Unrelated gaps read as noise, and your eye reports noise as “off.”',
+      'You measured nothing and still caught it. Unrelated gaps read as noise, and your eye reports noise as “off.”',
     whyWrong:
       'At a glance they nearly pass for twins, so no harm done. Flicker them in place below and watch the gaps move. After that, your eye catches it unaided.',
   },
@@ -34,7 +34,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['ranked', 'flat'],
     broken: 'perturbed tokens: title 16→14, 650→400 · values 600→400 · all text to one color · button unfilled',
     whyRight:
-      'Right. Nothing moved. Size, weight, and color changed, and those three decide where your eye lands.',
+      'Nothing moved. Size, weight, and color changed, and those three decide where your eye lands.',
     whyWrong:
       'Use the flicker below. In one version your eye lands on the amounts, then the button. In the other it lands nowhere in particular. That nowhere feeling is flat hierarchy.',
   },
@@ -44,7 +44,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['attached', 'floating'],
     broken: 'perturbed tokens: label gap above 24→14, below 6→14 · every label now equidistant from two fields',
     whyRight:
-      'Yes. The labels sit close to their own field and far from the neighbor above. Distance told you what belongs to what before you read a word.',
+      'The labels sit close to their own field and far from the neighbor above. Distance told you what belongs to what before you read a word.',
     whyWrong:
       'Measure with your eye in the flicker below. When a label floats halfway between two fields, it belongs to neither, and the form becomes a puzzle.',
   },
@@ -54,7 +54,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['aligned', 'scattered'],
     broken: 'perturbed tokens: title centered · one label indented 14px · one input 80% wide, pushed right · button drifted',
     whyRight:
-      'Yes. In the aligned build, one invisible line runs down the left side and everything touches it. Your eye follows lines like that without being told.',
+      'In the aligned build, one invisible line runs down the left side and everything touches it. Your eye follows lines like that without being told.',
     whyWrong:
       'Flicker below and watch the left edge. In one build it is a straight line; in the other, five elements start at five positions. Each drift is small. The sum reads as careless.',
   },
@@ -64,7 +64,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['on scale', 'crowded'],
     broken: 'perturbed tokens: heading 21/650→17/500 · meta 13→15 · the three sizes now sit within 2.5px of each other',
     whyRight:
-      'Yes. The heading, the meta line, and the body sit on clearly different steps, so the card ranks itself. In the other build the sizes crowd into one register.',
+      'The heading, the meta line, and the body sit on clearly different steps, so the card ranks itself. In the other build the sizes crowd into one register.',
     whyWrong:
       'Flicker below and watch the heading. When sizes sit 1 or 2px apart, your eye cannot rank them, and the card turns into undifferentiated text.',
   },
@@ -74,7 +74,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['tinted', 'grey'],
     broken: 'perturbed token: subtitle color, from a light tint of the background hue to neutral grey',
     whyRight:
-      'Yes. The quiet text there is the background hue, lightened. Grey on a colored background turns muddy; a tint of the same hue stays clean and calm.',
+      'The quiet text there is the background hue, lightened. Grey on a colored background turns muddy; a tint of the same hue stays clean and calm.',
     whyWrong:
       'Flicker below and watch the paragraph. Grey text on a colored background goes muddy and slightly dirty. The fix is a light tint of the background hue itself.',
   },
@@ -84,7 +84,7 @@ const DRILLS: Record<string, DrillDef> = {
     toggle: ['one light', 'mixed'],
     broken: 'perturbed tokens: three shadows with three light sources, one glow, one hard offset · consistent build: two tiers, light from above',
     whyRight:
-      'Yes. Those cards share one light source, from above, in two strengths. In the other build each card invents its own physics, and the row stops feeling like one surface.',
+      'Those cards share one light source, from above, in two strengths. In the other build each card invents its own physics, and the row stops feeling like one surface.',
     whyWrong:
       'Flicker below and look at the shadows, not the cards. One build has a single light source in two strengths. The other has a glow, a sideways sun, and a hard smear. Your eye trusts consistent light.',
   },
