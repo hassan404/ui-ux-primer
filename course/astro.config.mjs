@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   integrations: [react(), mdx()],
-  site: 'https://example.com',
+  site: 'https://hassan404.github.io',
+  base: process.env.DEPLOY_BASE || '/',
   devToolbar: { enabled: false },
 });

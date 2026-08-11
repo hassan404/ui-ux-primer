@@ -2,6 +2,7 @@
 import Base from './Base.astro';
 const { frontmatter } = Astro.props;
 const { number, title, dek, minutes, prev, next, end } = frontmatter;
+const withBase = (p: string) => (import.meta.env.BASE_URL + '/' + p).replace(/\/{2,}/g, '/');
 ---
 <Base title={`${number} · ${title} · UI/UX Primer`} description={dek}>
   <article>
@@ -22,14 +23,14 @@ const { number, title, dek, minutes, prev, next, end } = frontmatter;
     <nav class="module-foot" aria-label="Module navigation">
       <div>
         {prev
-          ? <a href={prev.href}><span class="label">← previous</span>{prev.title}</a>
-          : <a href="/"><span class="label">← back</span>Course map</a>}
+          ? <a href={withBase(prev.href)}><span class="label">← previous</span>{prev.title}</a>
+          : <a href={withBase('/')}><span class="label">← back</span>Course map</a>}
       </div>
       <div style="text-align: right">
         {next
-          ? <a href={next.href}><span class="label">next →</span>{next.title}</a>
+          ? <a href={withBase(next.href)}><span class="label">next →</span>{next.title}</a>
           : end
-            ? <a href="/"><span class="label">done</span>Back to the course map</a>
+            ? <a href={withBase('/')}><span class="label">done</span>Back to the course map</a>
             : <span style="color: var(--ink-3)"><span class="label">next</span>In the works</span>}
       </div>
     </nav>
