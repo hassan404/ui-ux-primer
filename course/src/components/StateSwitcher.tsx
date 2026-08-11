@@ -33,7 +33,6 @@ export default function StateSwitcher() {
   const [idx, setIdx] = useState(0);
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> one card, four realities</div>
       <div className="drill-body">
         <div className="seg" role="group" aria-label="UI states">
           {STATES.map((s, i) => (

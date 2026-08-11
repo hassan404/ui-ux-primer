@@ -10,7 +10,6 @@ export default function SquintToggle({ demo = 'invoice' }: { demo?: 'invoice' | 
   const [blur, setBlur] = useState(false);
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> tool · the squint test</div>
       <div className="drill-body">
         <div className="drill-actions" style={{ marginTop: 0 }}>
           <div className="seg" role="group" aria-label="Toggle squint blur">

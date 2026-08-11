@@ -43,7 +43,6 @@ export default function LeverStepper() {
   const [step, setStep] = useState(0);
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> one lever at a time</div>
       <div className="drill-body">
         <div className="seg" role="group" aria-label="Hierarchy repair steps">
           {STEPS.map((s, i) => (

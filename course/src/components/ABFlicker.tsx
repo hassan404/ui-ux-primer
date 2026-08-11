@@ -22,7 +22,7 @@ const DRILLS: Record<string, DrillDef> = {
     prompt: 'One of these cards was built on a spacing scale. The other was spaced by eye. Which one is on the scale?',
     render: (broken) => <InvoiceCard tokens={broken ? offScaleCard : {}} width={250} />,
     toggle: ['on scale', 'by eye'],
-    broken: 'perturbed tokens: padding 17/13/25/19 · gaps 9, 19, 31 · no two values related',
+    broken: 'What changed: padding 17/13/25/19 became 24 all round; gaps 9, 19, 31 came from no scale.',
     whyRight:
       'You measured nothing and still caught it. Unrelated gaps read as noise, and your eye reports noise as “off.”',
     whyWrong:
@@ -32,7 +32,7 @@ const DRILLS: Record<string, DrillDef> = {
     prompt: 'Same card, two builds. On one of them, you know where to look first. Which?',
     render: (broken) => <InvoiceCard tokens={broken ? flatCard : {}} width={250} />,
     toggle: ['ranked', 'flat'],
-    broken: 'perturbed tokens: title 16→14, 650→400 · values 600→400 · all text to one color · button unfilled',
+    broken: 'What changed: title size and weight, value weight, text color, and the button fill. Nothing else.',
     whyRight:
       'Nothing moved. Size, weight, and color changed, and those three decide where your eye lands.',
     whyWrong:
@@ -42,7 +42,7 @@ const DRILLS: Record<string, DrillDef> = {
     prompt: 'Two builds of the same form. On one, each label belongs to its field. Which?',
     render: (broken) => <FormCard tokens={broken ? floatingForm : attachedForm} />,
     toggle: ['attached', 'floating'],
-    broken: 'perturbed tokens: label gap above 24→14, below 6→14 · every label now equidistant from two fields',
+    broken: 'What changed: the label gaps. Attached: 24 above, 6 below. Floating: 14 and 14, equidistant from two fields.',
     whyRight:
       'The labels sit close to their own field and far from the neighbor above. Distance told you what belongs to what before you read a word.',
     whyWrong:
@@ -52,7 +52,7 @@ const DRILLS: Record<string, DrillDef> = {
     prompt: 'Same form, same spacing. One build snaps to a shared edge. Which?',
     render: (broken) => <FormCard tokens={broken ? scatteredForm : attachedForm} />,
     toggle: ['aligned', 'scattered'],
-    broken: 'perturbed tokens: title centered · one label indented 14px · one input 80% wide, pushed right · button drifted',
+    broken: 'What changed: the title centered, one label indented, one input narrowed and pushed right, the button drifted.',
     whyRight:
       'In the aligned build, one invisible line runs down the left side and everything touches it. Your eye follows lines like that without being told.',
     whyWrong:
@@ -62,7 +62,7 @@ const DRILLS: Record<string, DrillDef> = {
     prompt: 'Two builds of the same card. In one, the sizes were picked from a scale. Which?',
     render: (broken) => <TypeCard tokens={broken ? crowdedType : {}} />,
     toggle: ['on scale', 'crowded'],
-    broken: 'perturbed tokens: heading 21/650→17/500 · meta 13→15 · the three sizes now sit within 2.5px of each other',
+    broken: 'What changed: heading down to 17, meta up to 15. The three sizes now sit within about 2px of each other.',
     whyRight:
       'The heading, the meta line, and the body sit on clearly different steps, so the card ranks itself. In the other build the sizes crowd into one register.',
     whyWrong:
@@ -72,7 +72,7 @@ const DRILLS: Record<string, DrillDef> = {
     prompt: 'Two builds of the same banner. In one, the supporting text stays readable and calm. Which?',
     render: (broken) => <ColorBanner textMode={broken ? 'grey' : 'tint'} />,
     toggle: ['tinted', 'grey'],
-    broken: 'perturbed token: subtitle color, from a light tint of the background hue to neutral grey',
+    broken: 'What changed: one color. The subtitle went from a light tint of the background hue to neutral grey.',
     whyRight:
       'The quiet text there is the background hue, lightened. Grey on a colored background turns muddy; a tint of the same hue stays clean and calm.',
     whyWrong:
@@ -82,7 +82,7 @@ const DRILLS: Record<string, DrillDef> = {
     prompt: 'Two builds of the same stat row. In one, every shadow agrees about the light. Which?',
     render: (broken) => <DepthRow mode={broken ? 'mixed' : 'consistent'} />,
     toggle: ['one light', 'mixed'],
-    broken: 'perturbed tokens: three shadows with three light sources, one glow, one hard offset · consistent build: two tiers, light from above',
+    broken: 'What changed: the shadows. One build keeps two tiers lit from above; the other mixes a glow, a side light, and a hard offset.',
     whyRight:
       'Those cards share one light source, from above, in two strengths. In the other build each card invents its own physics, and the row stops feeling like one surface.',
     whyWrong:
@@ -102,7 +102,6 @@ export default function ABFlicker({ demo }: { demo: keyof typeof DRILLS }) {
 
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> drill · commit before the reveal</div>
       <div className="drill-body">
         <p className="drill-prompt">{def.prompt}</p>
 
@@ -152,7 +151,7 @@ export default function ABFlicker({ demo }: { demo: keyof typeof DRILLS }) {
             <div className="demo-mat" style={{ marginTop: 'var(--s-4)' }}>
               {def.render(showBroken)}
             </div>
-            <p style={{ fontSize: 'var(--t-0)', fontFamily: 'var(--mono)', color: 'var(--ink-3)', marginTop: 'var(--s-3)' }}>
+            <p style={{ fontSize: 'var(--t-1)', color: 'var(--ink-3)', marginTop: 'var(--s-3)' }}>
               {def.broken}
             </p>
           </>

@@ -28,7 +28,6 @@ export default function PredictReveal({
 
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> drill · answer before you read on</div>
       <div className="drill-body">
         <p className="drill-prompt">{prompt}</p>
         {stage && (

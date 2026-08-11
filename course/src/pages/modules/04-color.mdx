@@ -10,13 +10,13 @@ next: { title: 'Depth & polish', href: '/modules/05-depth-and-polish/' }
 import ABFlicker from '../../components/ABFlicker.tsx';
 import PredictReveal from '../../components/PredictReveal.tsx';
 
-## notice
+## Notice
 
 The most common color mistake fits in one banner. Find it:
 
 <ABFlicker demo="greyoncolor" client:only="react" />
 
-## why
+## Why
 
 Think of color as three dials, hue, saturation, and lightness, rather than a wall of swatches. Professional palettes turn the hue dial rarely and the lightness dial constantly. A typical polished product runs on one accent hue, a set of neutrals, and a few semantic colors, with five to nine lightness steps of each. The variety you admire in good interfaces is mostly shades, one hue at many lightnesses, doing hierarchy work. New hues are for new meanings. <span class="conf">strong convention</span>
 
@@ -38,7 +38,7 @@ One dial is measurable. Contrast between text and background computes to a ratio
   revealBody="They look close on a good screen in a dark room, which is the trap. On a phone in daylight, A disappears. The lesson generalizes: your eye can rank contrast, and it cannot measure contrast. Keep a checker in reach and run it on every text color you create. The muted grey you picked for placeholder text fails more often than any other color decision."
 />
 
-## the move
+## The move
 
 Building a palette, in order:
 
@@ -52,7 +52,7 @@ In the hierarchy toolkit, color ranks after size and weight. A screen where colo
 
 <span class="hatch">Working in OKLCH instead of HSL makes the lightness dial honest (HSL thinks yellow and blue at 50% are equally light; your eye disagrees), and modern CSS supports it. The palette logic is identical. And if your product ships a marketing brand with six hues, keep them on marketing surfaces; product chrome still runs on one accent plus neutrals.</span>
 
-## before you ship
+## Before you ship
 
 - One accent hue, shades doing the work. New hues only for new meanings.
 - Neutrals tinted toward the accent. No pure grey text on colored backgrounds; use a tint of the background hue.

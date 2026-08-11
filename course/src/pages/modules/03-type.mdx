@@ -10,13 +10,13 @@ next: { title: 'Color', href: '/modules/04-color/' }
 import ABFlicker from '../../components/ABFlicker.tsx';
 import StepSlider from '../../components/StepSlider.tsx';
 
-## notice
+## Notice
 
 Count the pixels on any screen you have shipped. Text covers most of them. Whatever your typography is doing, your interface is doing. Start with sizes:
 
 <ABFlicker demo="typescale" client:only="react" />
 
-## why
+## Why
 
 Module 1 gave you size as a hierarchy lever. Type is where the lever needs machinery, because a screen holds many sizes at once and your eye ranks them relative to each other. Sizes 1px apart refuse to rank; the reader sees one mumbling register. Sizes from a scale (each step noticeably larger, a ratio like 1.25 apart) rank instantly. Pick from the scale, never from between its steps. This is the spacing-scale discipline applied to text. <span class="conf">strong convention</span>
 
@@ -28,7 +28,7 @@ Two more variables shape how text reads, and they trade off against each other. 
 
 The two interact: wider columns need taller line height, since the eye's return sweep travels farther. Set them together, never one at a time.
 
-## the move
+## The move
 
 A working default kit, before taste enters:
 
@@ -41,11 +41,11 @@ A working default kit, before taste enters:
 
 <span class="hatch">The 1.5 line height figure is a screen convention; book typographers set 1.2 to 1.45 and have for centuries. The regimes differ: immersive reading at close focal distance versus scanning at arm's length. WCAG asks for 1.5 on body text, which settles it for interfaces. Print rules stay right, in print. <span class="conf">sources conflict; taught as a judgment call</span></span>
 
-## the tool
+## The tool
 
 The two-size test. On any screen you own, count the distinct text sizes. Interfaces need fewer than you expect: one for content, one for metadata covers most cards and rows, with headings above. Past five sizes on one screen, some pair differs by a pixel or two, and that pair is where the mumble lives. Merge them and watch the screen firm up.
 
-## before you ship
+## Before you ship
 
 - Sizes come from the scale. No orphan sizes a step apart.
 - Body text: 16px and up, line height near 1.5, columns inside 75 characters.

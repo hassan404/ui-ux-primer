@@ -7,14 +7,14 @@ import { TypeCard } from './demos2';
 --------------------------------------------------------------------------- */
 
 interface SliderDef {
-  bar: string;
+  bar: string; // used as the segmented control's aria label
   steps: Array<{ label: string; render: () => ReactNode; caption: string }>;
   start: number;
 }
 
 const SLIDERS: Record<string, SliderDef> = {
   lineheight: {
-    bar: 'one variable · line height',
+    bar: 'Line height',
     start: 0,
     steps: [
       {
@@ -40,7 +40,7 @@ const SLIDERS: Record<string, SliderDef> = {
     ],
   },
   measure: {
-    bar: 'one variable · line length',
+    bar: 'Line length',
     start: 2,
     steps: [
       {
@@ -67,7 +67,6 @@ export default function StepSlider({ demo }: { demo: keyof typeof SLIDERS }) {
   const [step, setStep] = useState(def.start);
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> {def.bar}</div>
       <div className="drill-body">
         <div className="seg" role="group" aria-label={def.bar}>
           {def.steps.map((s, i) => (

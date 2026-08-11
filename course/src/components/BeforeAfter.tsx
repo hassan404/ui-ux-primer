@@ -57,7 +57,6 @@ export default function BeforeAfter({ demo }: { demo: keyof typeof VARIANTS }) {
 
   return (
     <div className="drill">
-      <div className="drill-bar"><span className="dot" /> before and after</div>
       <div className="drill-body">
         <div className="drill-actions" style={{ marginTop: 0 }}>
           <div className="seg" role="group" aria-label="Toggle before and after">

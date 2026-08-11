@@ -7,13 +7,7 @@ const withBase = (p: string) => (import.meta.env.BASE_URL + '/' + p).replace(/\/
 <Base title={`${number} · ${title} · UI/UX Primer`} description={dek}>
   <article>
     <header class="module-head">
-      <p class="crumbs">
-        <span class="num">module {String(number).padStart(2, '0')}</span>
-        <span>·</span>
-        <span>{minutes} min</span>
-        <span>·</span>
-        <span>interactive</span>
-      </p>
+      <p class="crumbs">Module {number}</p>
       <h1>{title}</h1>
       <p class="dek">{dek}</p>
     </header>
@@ -23,20 +17,16 @@ const withBase = (p: string) => (import.meta.env.BASE_URL + '/' + p).replace(/\/
     <nav class="module-foot" aria-label="Module navigation">
       <div>
         {prev
-          ? <a href={withBase(prev.href)}><span class="label">← previous</span>{prev.title}</a>
-          : <a href={withBase('/')}><span class="label">← back</span>Course map</a>}
+          ? <a href={withBase(prev.href)}><span class="label">Previous</span>{prev.title}</a>
+          : <a href={withBase('/')}><span class="label">Back</span>Course map</a>}
       </div>
       <div style="text-align: right">
         {next
-          ? <a href={withBase(next.href)}><span class="label">next →</span>{next.title}</a>
+          ? <a href={withBase(next.href)}><span class="label">Next</span>{next.title}</a>
           : end
-            ? <a href={withBase('/')}><span class="label">done</span>Back to the course map</a>
-            : <span style="color: var(--ink-3)"><span class="label">next</span>In the works</span>}
+            ? <a href={withBase('/')}><span class="label">Done</span>Back to the course map</a>
+            : <span style="color: var(--ink-3)"><span class="label">Next</span>In the works</span>}
       </div>
     </nav>
-    <p class="footer-note">
-      prose in this module: under budget (1,200 words max, enforced at build time) ·
-      <a href="https://github.com/hassan404/ui-ux-primer">source & receipts</a>
-    </p>
   </article>
 </Base>
