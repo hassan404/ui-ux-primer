@@ -49,7 +49,7 @@ export const DRILLS: Record<string, DrillDef> = {
       },
       {
         render: invoice({ pad: '24px 21px 24px 24px', gapTitle: '21px', gapRow: '10px', gapFoot: '27px' }),
-        note: 'The break, subtle: three gaps off by only 2 or 3px. At this magnitude you are reading rhythm, not measuring.',
+        note: 'The break, subtle: three gaps off by only 2 or 3px. At this size you are reading rhythm, not measuring.',
       },
     ],
     whyRight: 'You measured nothing and still caught it. Unrelated gaps read as noise, and your eye reports noise as “off.”',
@@ -133,7 +133,7 @@ export const DRILLS: Record<string, DrillDef> = {
       },
     ],
     whyRight: 'The heading, the meta line, and the body sit on clearly different steps, so the card ranks itself. In the other build the sizes crowd into one register.',
-    whyWrong: 'Flicker below and watch the heading. When sizes sit a pixel or two apart, your eye cannot rank them, and the card turns into undifferentiated text.',
+    whyWrong: 'Flicker below and watch the heading. When sizes sit a pixel or two apart, your eye cannot rank them, and the card turns into one gray block of text.',
   },
   greyoncolor: {
     prompt: 'Two builds of the same banner, same text lightness. One keeps the supporting text clean; one goes muddy. Which is clean?',

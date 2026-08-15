@@ -120,7 +120,7 @@ export default function ExitDrill({ base = '/' }: { base?: string }) {
               ? 'That is a working eye, including on surfaces the course never showed you. The families you missed are one reread away.'
               : total >= 9
                 ? 'Solid. The misses above are specific, which means the fix is specific too.'
-                : 'The misses cluster, and clusters are good news: reread the modules above and run this again. Items, magnitudes, and the exam sample are fresh each run, so memorizing is not an option.'}
+                : 'The misses cluster, and clusters are good news: reread the modules above and run this again. Items, difficulty, and the surprise set are fresh each run, so memorizing will not help, and it does not need to.'}
           </p>
           <div className="drill-actions">
             <button type="button" className="btn btn-ghost" onClick={restart}>Run it again, fresh items</button>

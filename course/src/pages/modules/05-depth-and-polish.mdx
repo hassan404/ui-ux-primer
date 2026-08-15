@@ -32,15 +32,15 @@ The deeper pattern, and it runs through this whole module: polish is consistency
 
 **Radius: one family, and nested corners shrink.** Pick a base radius and derive the rest. When a rounded element sits inside a rounded container, the inner radius must be smaller (outer minus the gap between them), or the corners visibly fight. Concentric corners are one of those details nobody names and everybody's eye checks.
 
-**Icons: one size grid, one stroke weight, never scaled up.** Icons drawn for 24px turn balloon-limbed at 48. If you need a big icon, put the small one in a colored shape and let the shape carry the size.
+**Icons: one size grid, one stroke weight, never scaled up.** Icons drawn for 24px turn swollen and clumsy at 48. If you need a big icon, put the small one in a colored shape and let the shape carry the size.
 
-**Optical beats mathematical.** A play triangle centered by geometry sits visibly off-center; text next to an icon needs a nudge; a circle must overshoot the cap height of text beside it to look equal. When math and eye disagree, the eye is right, because the eye is the instrument your users bring. No study settles this one; every working craftsperson repeats it.
+**Optical beats mathematical.** A play triangle centered by geometry sits visibly off-center; text next to an icon needs a nudge; a circle must sit slightly taller than the text beside it to look equal. When math and eye disagree, the eye is right, because the eye is the instrument your users bring. No study settles this one; every working craftsperson repeats it.
 
 <span class="hatch">Dark interfaces change the shadow rules: shadows need darkness to read, and a dark UI has none to spare, so elevation shifts to surface lightness (higher surfaces render lighter). Flat design systems drop shadows on purpose and leave hierarchy to color and space; that is a coherent choice, applied consistently, which is the actual rule.</span>
 
 ## The tool
 
-The consistency grep, run for real: search your stylesheets for `box-shadow`, `border-radius`, and `border:`. Count the distinct values. A polished codebase yields a handful of each; a drifted one yields dozens. Every value past the first few is a place your UI quietly disagrees with itself. Tokenize the survivors, delete the rest, and the interface tightens without a single layout change.
+The consistency grep, run for real: search your stylesheets for `box-shadow`, `border-radius`, and `border:`. Count the distinct values. A polished codebase yields a handful of each; a drifted one yields dozens. Every value past the first few is a place your UI quietly disagrees with itself. Turn the survivors into tokens, delete the rest, and the interface tightens without a single layout change.
 
 ## Before you ship
 

@@ -45,7 +45,7 @@ export const EXAM_DRILLS: Record<string, DrillDef> = {
     levels: [
       {
         render: (broken) => <NoteCard lh={broken ? 1.12 : 1.55} />,
-        note: 'The break: line height 1.12. The lines shear into each other and the paragraph reads tense.',
+        note: 'The break: line height 1.12. The lines press into each other and the paragraph feels tense.',
       },
       {
         render: (broken) => <NoteCard lh={1.3} />,

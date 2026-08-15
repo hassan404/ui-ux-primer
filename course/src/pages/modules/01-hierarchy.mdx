@@ -27,16 +27,16 @@ Below is a card from a product you have never used, which makes you the perfect 
   answer={0}
   stage="mismatch"
   revealTitle="Compare. Your eye read the pixels correctly, and the pixels are lying."
-  revealBody="Prominence has one job: to say what matters most. Here the business plainly wants an upgrade, but every watt of visual volume went to a feature-comparison detour while the real ask whispers in small gray letters. Nobody chose that; a default button style got reused, a link got pasted, and the volume settled at random. Your perception was right. The screen's priorities were wrong, and that mismatch is this module's whole subject."
+  revealBody="Prominence has one job: to say what matters most. Here the business plainly wants an upgrade, but all the visual volume went to a side errand, comparing features, while the real ask whispers in small gray letters. Nobody chose that; a default button style got reused, a link got pasted, and the volume settled at random. Your perception was right. The screen's priorities were wrong, and that mismatch is this module's whole subject."
 />
 
 ## Why
 
-The confusion you felt has a mechanism.
+That small confusion has a simple mechanism behind it, and it is worth a minute.
 
 Your eye lands before it reads. It hits the strongest contrast on the screen first and starts reading from there, so pixels decide the landing order: sizes, weights, colors. Importance has no vote unless someone gives it one.
 
-Every screen therefore carries two rankings: what matters most, and what is most prominent. When they match, the screen feels obvious. When they disagree, users feel lost and cannot say why. And when everything is equally loud, there is no landing point at all. The eye circles, gets tired, and leaves. That flatness is the bug developer forums rediscover every year in “why does my UI look amateur” threads, and the hardest one to see from the inside, because you already know where to look. Your users arrive cold.
+Every screen therefore carries two rankings: what matters most, and what is most prominent. When they match, the screen feels obvious. When they disagree, users feel lost and cannot say why. And when everything is equally loud, there is no landing point at all. The eye circles, gets tired, and leaves. That flatness is the bug developer forums rediscover every year in “why does my UI look amateur” threads, and the hardest one to see from the inside, because you already know where to look. Your users arrive cold, seeing it for the first time.
 
 The screen's job decides which ranking is right. Say the job in one sentence: let the user pay an invoice. Show whether the deploy is green. If you need two sentences, you have two screens sharing one URL, and that is a different fix.
 
@@ -44,19 +44,19 @@ The screen's job decides which ranking is right. Say the job in one sentence: le
 
 Hierarchy runs on three levers, and your hand is already on all of them:
 
-1. **Size.** Bigger lands first. The bluntest lever; two points is often enough.
-2. **Weight.** Bold anchors, regular supports. Structure at no cost in space.
+1. **Size.** Bigger lands first. The strongest lever, and two extra pixels is often enough.
+2. **Weight.** Bold holds attention, regular supports it, and it costs no extra space.
 3. **Color.** Near-black comes forward, gray steps back. Contrast is volume.
 
 Pull them one at a time:
 
 <LeverStepper client:visible />
 
-The half nobody guesses: most of the time you make a thing stand out by quieting its neighbors. If the total will not read, resist enlarging it. Gray out the labels around it instead. Labels are scaffolding and values are the building: keep the word "Amount" small and gray, keep the number dark and firm, and almost never the reverse.
+The part most people never guess: most of the time you make a thing stand out by quieting its neighbors. If the total will not read, resist enlarging it. Gray out the labels around it instead. Labels are scaffolding and values are the building: keep the word "Amount" small and gray, keep the number dark and firm, and almost never the reverse.
 
 Buttons are where this bites hardest. A screen gets one filled, high-contrast action. Secondary actions get outlines. Rare or dangerous actions get quiet text links. Two filled buttons in one view means the screen has not decided, and the user inherits the indecision.
 
-<span class="hatch">One primary per decision point, not per page: a long page can hold several decision moments as the user scrolls. And a destructive action may claim red even when it is secondary; semantics can outrank volume. What survives every exception: never two loudest things in one glance.</span>
+<span class="hatch">One primary per decision point, not per page: a long page can hold several decision moments as the user scrolls. And a destructive action may claim red even when it is secondary; meaning can outrank loudness. What survives every exception: never two loudest things in one glance.</span>
 
 ## The tool
 
@@ -68,7 +68,7 @@ This is the trial card from the top of the module. Blurred, the comparison butto
 
 ## Before you ship
 
-First, prove the eye works unassisted:
+First, show yourself the eye now works on its own:
 
 <ABFlicker demo="hierarchy" client:visible />
 

@@ -20,7 +20,7 @@ const SLIDERS: Record<string, SliderDef> = {
       {
         label: '1.1',
         render: () => <TypeCard tokens={{ bodyLh: 1.1 }} />,
-        caption: 'Cramped. The lines shear into each other and the paragraph feels anxious to read.',
+        caption: 'Cramped. The lines press into each other and the paragraph feels stressful to read.',
       },
       {
         label: '1.3',
@@ -46,7 +46,7 @@ const SLIDERS: Record<string, SliderDef> = {
       {
         label: 'narrow',
         render: () => <TypeCard tokens={{ width: 210 }} />,
-        caption: 'Around 30 characters. The eye ping-pongs; every line break interrupts a phrase.',
+        caption: 'Around 30 characters. Your eye bounces back and forth, and every line break cuts a phrase in half.',
       },
       {
         label: 'comfortable',
@@ -56,7 +56,7 @@ const SLIDERS: Record<string, SliderDef> = {
       {
         label: 'wide',
         render: () => <TypeCard tokens={{ width: 560 }} />,
-        caption: 'Past 90 characters. Each return sweep risks landing on the wrong line. Cap your prose columns.',
+        caption: 'Past 90 characters. On the trip back, your eye risks landing on the wrong line. Cap your text columns.',
       },
     ],
   },

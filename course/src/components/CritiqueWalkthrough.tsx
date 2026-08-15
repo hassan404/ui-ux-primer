@@ -18,11 +18,11 @@ const QUESTIONS: Array<{ q: string; model: string }> = [
   },
   {
     q: 'What does it want you to do next, and how fast did you know?',
-    model: 'The pixels say "compare," the business wants "upgrade," and it takes a beat to notice the grey link is the real ask. Anything that needs a beat costs conversions.',
+    model: 'The pixels say "compare," the business wants "upgrade," and it takes a moment to notice the grey link is the real ask. Anything that needs a moment costs signups.',
   },
   {
     q: 'What happens when it is empty, loading, failing, or overflowing?',
-    model: 'A static card dodges this one, and that is the point of the question: nobody shows you those states, so you ask every time. Here, the honest answer is "unknown," which on a real screen means "unfinished."',
+    model: 'A static card avoids this one, and that is the point of the question: nobody shows you those states, so you ask every time. Here, the honest answer is "unknown," which on a real screen means "unfinished."',
   },
   {
     q: 'Which gaps disagree with the scale, and did anyone choose that?',

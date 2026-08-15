@@ -21,14 +21,14 @@ import PredictReveal from '../../components/PredictReveal.tsx';
   ]}
   answer={2}
   revealTitle="Keep the standard as the default, despite the data."
-  revealBody="Look at what the test measured: people who had already used the pattern twice. Every real new user meets it cold, pays the learning tax at the door, and most decide about your product before the payoff arrives. Users spend nearly all their time in other products, so other products set their expectations; the standard pattern is a subsidy thousands of products paid for on your behalf. Spend novelty where your product differentiates. Designers cite this as Jakob's Law."
+  revealBody="Look at what the test measured: people who had already used the pattern twice. Every real new user meets it cold, pays the learning tax at the door, and most decide about your product before the payoff arrives. Users spend nearly all their time in other products, so other products set their expectations; the standard pattern is free training your users already received from a thousand other products. Spend novelty where your product differentiates. Designers cite this as Jakob's Law."
 />
 
 ## Why
 
 Every user carries a mental model, an expectation of how your product works, assembled from every product they used before it. They act on the model, then check the screen for evidence it worked. Interfaces feel intuitive when the model predicts them; the fights you remember (the door that says pull and opens on push) are model mismatches. You cannot install a model in your users. You can match the one they have, or teach a new one slowly and at cost.
 
-Under this course's rules sit six principles that every canonical list (Nielsen's heuristics, Shneiderman's rules, the ISO standards) restates in its own dialect. Decades of lists, from allied and rival traditions alike, converging on the same few ideas: that convergence is the strongest signal this field produces.
+Under this course's rules sit six principles that every famous list (Nielsen's heuristics, Shneiderman's rules, the ISO standards) repeats in its own words. Decades of lists, from friendly and rival schools alike, keep arriving at the same few ideas, and that agreement is the strongest signal this field produces.
 
 1. **Show system state.** The user should never wonder what is happening. Module 6's states and feedback serve this.
 2. **Match the user's model**, in words, order, and behavior. Speak "invoice," never "billing_line_item."
@@ -37,7 +37,7 @@ Under this course's rules sit six principles that every canonical list (Nielsen'
 5. **Prevent errors** instead of explaining them well. Disable the invalid, constrain the field, default sensibly.
 6. **Prefer recognition over recall.** Menus over memorized commands; visible options over hidden state.
 
-One more idea earns its place by explaining your job: complexity is conserved. Every task carries irreducible complexity, and the only question is who absorbs it, your code or your user. Auto-detecting the card type from the number is complexity you ate; a dropdown asking "Visa or Mastercard?" is complexity you served. Feature by feature, that choice is the job. Designers call it Tesler's law; it is a maxim rather than a finding, and it earns its keep anyway.
+One more idea earns its place by explaining your job: complexity is conserved. Every task carries some complexity that cannot be removed, only moved, and the only question is who absorbs it, your code or your user. Auto-detecting the card type from the number is complexity you ate; a dropdown asking "Visa or Mastercard?" is complexity you served. Feature by feature, that choice is the job. Designers call it Tesler's law; it is a rule of thumb rather than a research result, and it earns its keep anyway.
 
 ## The move
 
@@ -45,13 +45,13 @@ Treat the six principles as your code-review checklist for interfaces. State vis
 
 A warning about the wider genre: the internet sells dozens of named "laws of UX," and their evidence ranges from replicated science to vibes with a citation. Fitts's Law (big, close targets are faster to hit) is real motor-control research; it is why corner pixels and full-width buttons win. Hick's Law (more options, slower choice) holds for snap choices and gets stretched far past its data. The "seven plus or minus two" figure is the field's favorite misquote; working memory holds about four chunks, and either way it says nothing about menu length, since menus are recognition, not recall. When someone quotes a law at you, ask which kind it is.
 
-<span class="hatch">The subsidy argument covers the chrome and stops at the core. When your product's central interaction is the differentiator (a canvas, an editor, a game), novelty there is the point, and users expect to learn it. Keep the frame around it boring so the learning budget goes where it pays.</span>
+<span class="hatch">That free training covers the frame of your product and stops at its core. When your product's central interaction is the differentiator (a canvas, an editor, a game), novelty there is the point, and users expect to learn it. Keep the frame around it boring so the learning budget goes where it pays.</span>
 
 ## Before you ship
 
 - Run the six questions on every screen you touch. They are the review checklist now.
 - Name each feature's irreducible complexity, then decide who eats it. Prefer you.
 - Standard patterns for the chrome; novelty only where it differentiates.
-- Quoted laws get checked for their evidence class before they win an argument.
+- Before a quoted law wins an argument, ask what kind of evidence stands behind it.
 
 Next: Judgement. The rules end here; what remains is the eye that decides when they apply.
